@@ -74,45 +74,41 @@ CMP ESI, DWORD [Bookmark1]
 JNZ SHORT .Bookmark2_
 MOV BYTE [F9_Key+0x797E78],BL
 MOV BYTE [F9_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Bookmark2_:
 CMP ESI, DWORD [Bookmark2]
 JNZ SHORT .Bookmark3_
 MOV BYTE [F10_Key+0x797E78],BL
 MOV BYTE [F10_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Bookmark3_:
 CMP ESI, DWORD [Bookmark3]
 JNZ SHORT .Bookmark4_
 MOV BYTE [F11_Key+0x797E78],BL
 MOV BYTE [F11_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Bookmark4_:
 CMP ESI, DWORD [Bookmark4]
 JNZ SHORT .SidebarDown_
 MOV BYTE [F12_Key+0x797E78],BL
 MOV BYTE [F12_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .SidebarDown_:
 CMP ESI, DWORD [SidebarDown]
 JNZ SHORT .SidebarUp_
 MOV BYTE [DownArrow_Key+0x797E78],BL
 MOV BYTE [DownArrow_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .SidebarUp_:
 CMP ESI, DWORD [SidebarUp]
 JNZ SHORT .SelectAllUnits_
 MOV BYTE [UpArrow_Key+0x797E78],BL
 MOV BYTE [UpArrow_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
-
-;Temporary solution cause we don't have enough space
-.WM_KeyDown_End:
 JMP 0x4A33B0
 
 .SelectAllUnits_:
@@ -120,79 +116,75 @@ CMP ESI, DWORD [SelectAllUnits]
 JNZ SHORT .Scatter_
 MOV BYTE [E_Key+0x797E78],BL
 MOV BYTE [E_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Scatter_:
 CMP ESI, DWORD [Scatter]
 JNZ SHORT .CenterNextUnit_
 MOV BYTE [X_Key+0x797E78],BL
 MOV BYTE [X_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .CenterNextUnit_:
 CMP ESI, DWORD [CenterNextUnit]
 JNZ SHORT .Repair_
 MOV BYTE [N_Key+0x797E78],BL
 MOV BYTE [N_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Repair_:
 CMP ESI, DWORD [Repair]
 JNZ SHORT .Sell_
 MOV BYTE [T_Key+0x797E78],BL
 MOV BYTE [T_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Sell_:
 CMP ESI, DWORD [Sell]
 JNZ SHORT .Guard_
 MOV BYTE [Y_Key+0x797E78],BL
 MOV BYTE [Y_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End
-
-;Temporary solution cause we don't have enough space
-.WM_KeyDown_End2:
-JMP SHORT .WM_KeyDown_End
+JMP 0x4A33B0
 
 .Guard_:
 CMP ESI, DWORD [Guard]
 JNZ SHORT .CenterBase_
 MOV BYTE [G_Key+0x797E78],BL
 MOV BYTE [G_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End2
+JMP 0x4A33B0
 
 .CenterBase_:
 CMP ESI, DWORD [CenterBase]
 JNZ SHORT .Stop_
 MOV BYTE [H_Key+0x797E78],BL
 MOV BYTE [H_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End2
+JMP 0x4A33B0
 
 .Stop_:
 CMP ESI, DWORD [Stop]
 JNZ SHORT .Alliance_
 MOV BYTE [S_Key+0x797E78],BL
 MOV BYTE [S_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End2
+JMP 0x4A33B0
 
 .Alliance_:
 CMP ESI, DWORD [Alliance]
 JNZ SHORT .Retreat_
 MOV BYTE [A_Key+0x797E78],BL
 MOV BYTE [A_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End2
+JMP 0x4A33B0
 
 .Retreat_:
 CMP ESI, DWORD [Retreat]
 JNZ SHORT .UnknownKey_
 MOV BYTE [R_Key+0x797E78],BL
 MOV BYTE [R_Key+0x798390],BL
-JMP SHORT .WM_KeyDown_End2
+JMP 0x4A33B0
 
 .UnknownKey_:
 MOV BYTE [ESI+0x797E78],BL
 MOV BYTE [ESI+0x798390],BL
-JMP SHORT .WM_KeyDown_End2
+JMP 0x4A33B0
 
 
 _WM_KeyUp:

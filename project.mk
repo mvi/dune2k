@@ -1,6 +1,6 @@
 IMPORT	= 1 0x4CF000 280
 VSIZE	= .data 0x3F5AD4
-OBJS	= src/hotkeys.o res/dune2000.o
+OBJS	= src/hotkeys.o src/no-cd.o res/dune2000.o
 TARGET	= dune2000.exe
 NFLAGS	+= -Iinc/
 CFLAGS	+= -Iinc/
