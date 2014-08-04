@@ -4,8 +4,8 @@ OBJS	= src/hotkeys.o res/dune2000.o
 TARGET	= dune2000.exe
 NFLAGS	+= -Iinc/
 CFLAGS	+= -Iinc/
-LDFLAGS += -T res/dune2000.lds
+LDFLAGS += -T res/dune2000.lds --file-alignment=0x400
 
 -include config.mk
 
-$(TARGET): $(OBJS) link vsize import patch strip dump
+$(TARGET): $(OBJS) link vsize import patch dump
