@@ -7,13 +7,15 @@ SECTIONS
     .rdata          0x4BE000   : { res/dune2000.dat(.rdata) }
     .data           0x4D9000   : { res/dune2000.dat(.data) }
     .idata          0x8CF000   : { res/dune2000.dat(.idata) }
-    .rsrc           0x8D1000   : { res/dune2000.dat(.rsrc) }
+    /DISCARD/                  : { res/dune2000.dat(.rsrc) }
 
     /DISCARD/                  : { *(.drectve) }
 
-    .p_text     ALIGN(0x400)   : { *(.text); }
-    .p_rdata    ALIGN(0x400)   : { *(.rdata); }
-    .p_data     ALIGN(0x400)   : { *(.data) *(.bss) *(COMMON); }
+    .p_text     ALIGN(0x1000)  : { *(.text); }
+    .p_rdata    ALIGN(0x1000)  : { *(.rdata); }
+    .p_data     ALIGN(0x1000)  : { *(.data) *(.bss) *(COMMON); }
 
-    .patch                     : { *(.patch) }
+    .patch      ALIGN(0x1000)  : { *(.patch) }
+
+    .rsrc       ALIGN(0x1000)  : { *(.rsrc); }
 }

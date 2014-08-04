@@ -10,7 +10,7 @@ WINDRES 	?= windres
 CFLAGS		?= -std=gnu99 -Wall
 CXXFLAGS	?= $(CFLAGS)
 LDFLAGS		?= --allow-multiple-definition --enable-stdcall-fixup --subsystem=windows
-WFLAGS		?= $(CFLAGS)
+WFLAGS		?=
 NFLAGS		?= -f elf
 
 include project.mk
