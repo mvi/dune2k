@@ -11,9 +11,9 @@ SECTIONS
 
     /DISCARD/                  : { *(.drectve) }
 
-    .p_text                    : { *(.text); }
-    .p_rdata                   : { *(.rdata); }
-    .p_data                    : { *(.data) *(.bss) *(COMMON); }
+    .p_text     ALIGN(0x400)   : { *(.text); }
+    .p_rdata    ALIGN(0x400)   : { *(.rdata); }
+    .p_data     ALIGN(0x400)   : { *(.data) *(.bss) *(COMMON); }
 
     .patch                     : { *(.patch) }
 }

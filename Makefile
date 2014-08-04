@@ -26,7 +26,7 @@ import:
 	$(PETOOL) setdd $(TARGET) $(IMPORT)
 
 vsize:
-	$(PETOOL) setdd $(TARGET) $(VSIZE)
+	$(PETOOL) setvs $(TARGET) $(VSIZE)
 
 patch:
 	-$(PETOOL) patch $(TARGET)
