@@ -8,13 +8,12 @@
 @CLEAR 0x0047841A, 0x90, 0x00478424
 
 @CLEAR 0x0043BD7B, 0x90, 0x0043BD81
-@LJMP 0x0043BD7B, _WOL_6Player
+@LJMP 0x0043BD7B, WOL_6Player
 
 
 [section .text]
 
-_WOL_6Player:
-
-add esp,0x8AC
-mov byte[0x4E8BEC],0x6
-jmp 0x0043BD81
+WOL_6Player:
+	add esp,0x8AC
+	mov byte[0x4E8BEC],0x6
+	jmp 0x0043BD81

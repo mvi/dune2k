@@ -2,7 +2,13 @@
 
 IMPORT	= 1 0x4CF000 280
 VSIZE	= .data 0x3F5AD4
-OBJS	= src/hotkeys.o src/no-cd.o src/network-variables.o src/wol-fixes.o res/dune2000.o
+OBJS	= \
+src/hotkeys.o \
+src/no-cd.o \
+src/network-variables.o \
+src/wol-fixes.o \
+src/hotkeys-func.o \
+res/dune2000.o
 TARGET	= dune2000.exe
 
 $(TARGET): $(OBJS) link vsize import patch dump
