@@ -68,3 +68,8 @@
     dd %2 - %1 - 5        ; relative offset
     @ENDPATCH
 %endmacro
+
+%macro setsym 2
+    global %2
+    %2 equ %1
+%endmacro
