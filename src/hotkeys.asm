@@ -1,6 +1,9 @@
 %include "patch.inc"
 
+@CLEAR 0x004A33A4, 0x90, 0x004A33B0
 @LJMP 0x004A33A4, _WM_KeyDown
+
+@CLEAR 0x004A3468, 0x90, 0x004A346F
 @LJMP 0x004A3468, _WM_KeyUp
 
 ; http://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
