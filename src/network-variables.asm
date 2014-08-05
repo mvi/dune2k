@@ -10,6 +10,9 @@
 @CLEAR 0x0041A28C, 0x90, 0x0041A293
 @LJMP 0x0041A28C, _WOL_GameVersion2
 
+;Default handicap setting for multiplayer
+@SET 0x00470834, db 0x00
+
 
 %define SendRate 0x4E3AEC
 %define ReconnectTimeOutToPlayer 0x6B9460

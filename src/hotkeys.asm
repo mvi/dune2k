@@ -73,221 +73,221 @@ Retreat dd R_Key
 
 _WM_KeyDown:
 
-CMP ESI, DWORD [Bookmark1]
-JNZ SHORT .Bookmark2_
-MOV BYTE [F9_Key+0x797E78],BL
-MOV BYTE [F9_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Bookmark1]
+jnz short .Bookmark2_
+mov byte [F9_Key+0x797E78],BL
+mov byte [F9_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Bookmark2_:
-CMP ESI, DWORD [Bookmark2]
-JNZ SHORT .Bookmark3_
-MOV BYTE [F10_Key+0x797E78],BL
-MOV BYTE [F10_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Bookmark2]
+jnz short .Bookmark3_
+mov byte [F10_Key+0x797E78],BL
+mov byte [F10_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Bookmark3_:
-CMP ESI, DWORD [Bookmark3]
-JNZ SHORT .Bookmark4_
-MOV BYTE [F11_Key+0x797E78],BL
-MOV BYTE [F11_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Bookmark3]
+jnz short .Bookmark4_
+mov byte [F11_Key+0x797E78],BL
+mov byte [F11_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Bookmark4_:
-CMP ESI, DWORD [Bookmark4]
-JNZ SHORT .SidebarDown_
-MOV BYTE [F12_Key+0x797E78],BL
-MOV BYTE [F12_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Bookmark4]
+jnz short .SidebarDown_
+mov byte [F12_Key+0x797E78],BL
+mov byte [F12_Key+0x798390],BL
+jmp 0x4A33B0
 
 .SidebarDown_:
-CMP ESI, DWORD [SidebarDown]
-JNZ SHORT .SidebarUp_
-MOV BYTE [DownArrow_Key+0x797E78],BL
-MOV BYTE [DownArrow_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [SidebarDown]
+jnz short .SidebarUp_
+mov byte [DownArrow_Key+0x797E78],BL
+mov byte [DownArrow_Key+0x798390],BL
+jmp 0x4A33B0
 
 .SidebarUp_:
-CMP ESI, DWORD [SidebarUp]
-JNZ SHORT .SelectAllUnits_
-MOV BYTE [UpArrow_Key+0x797E78],BL
-MOV BYTE [UpArrow_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [SidebarUp]
+jnz short .SelectAllUnits_
+mov byte [UpArrow_Key+0x797E78],BL
+mov byte [UpArrow_Key+0x798390],BL
+jmp 0x4A33B0
 
 .SelectAllUnits_:
-CMP ESI, DWORD [SelectAllUnits]
-JNZ SHORT .Scatter_
-MOV BYTE [E_Key+0x797E78],BL
-MOV BYTE [E_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [SelectAllUnits]
+jnz short .Scatter_
+mov byte [E_Key+0x797E78],BL
+mov byte [E_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Scatter_:
-CMP ESI, DWORD [Scatter]
-JNZ SHORT .CenterNextUnit_
-MOV BYTE [X_Key+0x797E78],BL
-MOV BYTE [X_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Scatter]
+jnz short .CenterNextUnit_
+mov byte [X_Key+0x797E78],BL
+mov byte [X_Key+0x798390],BL
+jmp 0x4A33B0
 
 .CenterNextUnit_:
-CMP ESI, DWORD [CenterNextUnit]
-JNZ SHORT .Repair_
-MOV BYTE [N_Key+0x797E78],BL
-MOV BYTE [N_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [CenterNextUnit]
+jnz short .Repair_
+mov byte [N_Key+0x797E78],BL
+mov byte [N_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Repair_:
-CMP ESI, DWORD [Repair]
-JNZ SHORT .Sell_
-MOV BYTE [T_Key+0x797E78],BL
-MOV BYTE [T_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Repair]
+jnz short .Sell_
+mov byte [T_Key+0x797E78],BL
+mov byte [T_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Sell_:
-CMP ESI, DWORD [Sell]
-JNZ SHORT .Guard_
-MOV BYTE [Y_Key+0x797E78],BL
-MOV BYTE [Y_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Sell]
+jnz short .Guard_
+mov byte [Y_Key+0x797E78],BL
+mov byte [Y_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Guard_:
-CMP ESI, DWORD [Guard]
-JNZ SHORT .CenterBase_
-MOV BYTE [G_Key+0x797E78],BL
-MOV BYTE [G_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Guard]
+jnz short .CenterBase_
+mov byte [G_Key+0x797E78],BL
+mov byte [G_Key+0x798390],BL
+jmp 0x4A33B0
 
 .CenterBase_:
-CMP ESI, DWORD [CenterBase]
-JNZ SHORT .Stop_
-MOV BYTE [H_Key+0x797E78],BL
-MOV BYTE [H_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [CenterBase]
+jnz short .Stop_
+mov byte [H_Key+0x797E78],BL
+mov byte [H_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Stop_:
-CMP ESI, DWORD [Stop]
-JNZ SHORT .Alliance_
-MOV BYTE [S_Key+0x797E78],BL
-MOV BYTE [S_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Stop]
+jnz short .Alliance_
+mov byte [S_Key+0x797E78],BL
+mov byte [S_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Alliance_:
-CMP ESI, DWORD [Alliance]
-JNZ SHORT .Retreat_
-MOV BYTE [A_Key+0x797E78],BL
-MOV BYTE [A_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Alliance]
+jnz short .Retreat_
+mov byte [A_Key+0x797E78],BL
+mov byte [A_Key+0x798390],BL
+jmp 0x4A33B0
 
 .Retreat_:
-CMP ESI, DWORD [Retreat]
-JNZ SHORT .UnknownKey_
-MOV BYTE [R_Key+0x797E78],BL
-MOV BYTE [R_Key+0x798390],BL
-JMP 0x4A33B0
+cmp esi, dword [Retreat]
+jnz short .UnknownKey_
+mov byte [R_Key+0x797E78],BL
+mov byte [R_Key+0x798390],BL
+jmp 0x4A33B0
 
 .UnknownKey_:
-MOV BYTE [ESI+0x797E78],BL
-MOV BYTE [ESI+0x798390],BL
-JMP 0x4A33B0
+mov byte [esi+0x797E78],BL
+mov byte [esi+0x798390],BL
+jmp 0x4A33B0
 
 
 _WM_KeyUp:
 
-CMP EAX, DWORD [Bookmark1]
-JNZ SHORT .Bookmark2_2
-MOV BYTE [F9_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Bookmark1]
+jnz short .Bookmark2_2
+mov byte [F9_Key+0x797E78],0
+jmp 0x4A346F
 
 .Bookmark2_2:
-CMP EAX, DWORD [Bookmark2]
-JNZ SHORT .Bookmark3_2
-MOV BYTE [F10_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Bookmark2]
+jnz short .Bookmark3_2
+mov byte [F10_Key+0x797E78],0
+jmp 0x4A346F
 
 .Bookmark3_2:
-CMP EAX, DWORD [Bookmark3]
-JNZ SHORT .Bookmark4_2
-MOV BYTE [F11_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Bookmark3]
+jnz short .Bookmark4_2
+mov byte [F11_Key+0x797E78],0
+jmp 0x4A346F
 
 .Bookmark4_2:
-CMP EAX, DWORD [Bookmark4]
-JNZ SHORT .SidebarDown_2
-MOV BYTE [F12_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Bookmark4]
+jnz short .SidebarDown_2
+mov byte [F12_Key+0x797E78],0
+jmp 0x4A346F
 
 .SidebarDown_2:
-CMP EAX, DWORD [SidebarDown]
-JNZ SHORT .SidebarUp_2
-MOV BYTE [DownArrow_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [SidebarDown]
+jnz short .SidebarUp_2
+mov byte [DownArrow_Key+0x797E78],0
+jmp 0x4A346F
 
 .SidebarUp_2:
-CMP EAX, DWORD [SidebarUp]
-JNZ SHORT .SelectAllUnits_2
-MOV BYTE [UpArrow_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [SidebarUp]
+jnz short .SelectAllUnits_2
+mov byte [UpArrow_Key+0x797E78],0
+jmp 0x4A346F
 
 .SelectAllUnits_2:
-CMP EAX, DWORD [SelectAllUnits]
-JNZ SHORT .Scatter_2
-MOV BYTE [E_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [SelectAllUnits]
+jnz short .Scatter_2
+mov byte [E_Key+0x797E78],0
+jmp 0x4A346F
 
 .Scatter_2:
-CMP EAX, DWORD [Scatter]
-JNZ SHORT .CenterNextUnit_2
-MOV BYTE [X_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Scatter]
+jnz short .CenterNextUnit_2
+mov byte [X_Key+0x797E78],0
+jmp 0x4A346F
 
 .CenterNextUnit_2:
-CMP EAX, DWORD [CenterNextUnit]
-JNZ SHORT .Repair_2
-MOV BYTE [N_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [CenterNextUnit]
+jnz short .Repair_2
+mov byte [N_Key+0x797E78],0
+jmp 0x4A346F
 
 .Repair_2:
-CMP EAX, DWORD [Repair]
-JNZ SHORT .Sell_2
-MOV BYTE [T_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Repair]
+jnz short .Sell_2
+mov byte [T_Key+0x797E78],0
+jmp 0x4A346F
 
 .Sell_2:
-CMP EAX, DWORD [Sell]
-JNZ SHORT .Guard_2
-MOV BYTE [Y_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Sell]
+jnz short .Guard_2
+mov byte [Y_Key+0x797E78],0
+jmp 0x4A346F
 
 .Guard_2:
-CMP EAX, DWORD [Guard]
-JNZ SHORT .CenterBase_2
-MOV BYTE [G_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Guard]
+jnz short .CenterBase_2
+mov byte [G_Key+0x797E78],0
+jmp 0x4A346F
 
 .CenterBase_2:
-CMP EAX, DWORD [CenterBase]
-JNZ SHORT .Stop_2
-MOV BYTE [H_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [CenterBase]
+jnz short .Stop_2
+mov byte [H_Key+0x797E78],0
+jmp 0x4A346F
 
 .Stop_2:
-CMP EAX, DWORD [Stop]
-JNZ SHORT .Alliance_2
-MOV BYTE [S_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Stop]
+jnz short .Alliance_2
+mov byte [S_Key+0x797E78],0
+jmp 0x4A346F
 
 .Alliance_2:
-CMP EAX, DWORD [Alliance]
-JNZ SHORT .Retreat_2
-MOV BYTE [A_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Alliance]
+jnz short .Retreat_2
+mov byte [A_Key+0x797E78],0
+jmp 0x4A346F
 
 .Retreat_2:
-CMP EAX, DWORD [Retreat]
-JNZ SHORT .UnknownKey_2
-MOV BYTE [R_Key+0x797E78],0
-JMP 0x4A346F
+cmp eax, dword [Retreat]
+jnz short .UnknownKey_2
+mov byte [R_Key+0x797E78],0
+jmp 0x4A346F
 
 .UnknownKey_2:
-MOV BYTE [EAX+0x797E78],0
-JMP 0x4A346F
+mov byte [eax+0x797E78],0
+jmp 0x4A346F
 
