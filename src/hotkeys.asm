@@ -25,6 +25,7 @@ WM_KeyDown:
 	pop ecx
 	jmp 0x4A33B0
 
+	
 WM_KeyUp:
 	push esi
 	push ecx 

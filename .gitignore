@@ -1,4 +1,3 @@
 *.o
 dune2000.exe
 config.mk
-build.bat
