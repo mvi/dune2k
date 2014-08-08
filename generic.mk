@@ -1,53 +1,75 @@
 # Generic patch project master Makefile
 
-RM		?= rm -f
-CC		?= gcc
-CXX		?= g++
-LD		?= ld
-STRIP		?= strip
-NASM		?= nasm
-PETOOL		?= petool
+REV         ?= UNKNOWN_VERSION
 
-WINDRES 	?= windres
-CFLAGS		?= -std=gnu99 -Wall
-CXXFLAGS	?= $(CFLAGS)
-LDFLAGS		?= --allow-multiple-definition --enable-stdcall-fixup --subsystem=windows
-WFLAGS		?=
-NFLAGS		?= -f elf
+CP          ?= cp
+RM          ?= rm -f
+CC          ?= gcc
+CXX         ?= clang++
+STRIP       ?= strip
+WINDRES     ?= windres
+NASM        ?= nasm
+PETOOL      ?= petool
 
-.INTERMEDIATE: link import vsize patch strip dump
-.NOTPARALLEL: link import vsize patch strip dump
-.PHONY: clean
+REVFLAG     ?= -DREV=\"$(REV)\"
 
-link:
-	$(LD) $(LDFLAGS) -o $(TARGET) $(OBJS)
+CC_COMMON   ?= $(REVFLAG) $(INCLUDES) -m32 -Wall -Wextra
 
-import:
-	$(PETOOL) setdd $(TARGET) $(IMPORT)
+ifdef DEBUG
+CC_COMMON   += -g
+else
+CC_COMMON   += -O3
+endif
 
-vsize:
-	$(PETOOL) setvs $(TARGET) $(VSIZE)
+CFLAGS      ?= $(CC_COMMON) -std=gnu99 -masm=intel
+CXXFLAGS    ?= $(CC_COMMON) -std=gnu++98 -target i686-pc-win32 -mllvm --x86-asm-syntax=intel
+WFLAGS      ?= $(REVFLAG)
+NFLAGS      ?= $(REVFLAG) $(INCLUDES) -f elf
+LD_COMMON   ?= $(CFLAGS) \
+		-Wl,-mi386pe \
+		-Wl,--enable-stdcall-fixup \
+		-Wl,--allow-multiple-definition \
+		-Wl,--subsystem=windows
 
-patch:
-	-$(PETOOL) patch $(TARGET)
+LDFLAGS     ?= $(LD_COMMON) -Wl,--file-alignment=$(ALIGNMENT)
+DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
-strip:
-	$(STRIP) -R .patch $(TARGET)
+$(GAME).exe-pure: $(LSCRIPT) $(INBIN) $(OBJS)
+	$(LD) -T $< $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
-dump:
-	$(PETOOL) dump $(TARGET)
+$(GAME).dll-pure: $(DLL_OBJS)
+	$(LD) $(DLL_LDFLAGS) -o $@ $(DLL_OBJS) $(DLL_LIBS)
+
+link/%: %-pure
+	$(CP) $(*F)-pure $(*F)
+
+import/%: %
+	$(PETOOL) setdd $(*F) $(IMPORT)
+
+vsize/%: %
+	$(PETOOL) setvs $(*F) $(VSIZE)
+
+patch/%: %
+	-$(PETOOL) patch $(*F)
+
+strip/%: %
+	$(STRIP) -R .patch $(*F)
+
+dump/%: %
+	$(PETOOL) dump $(*F)
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	$(CXX)  $(CXXFLAGS) -c -o $@ $<
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC)   $(CFLAGS)   -c -o $@ $<
 
 %.o: %.asm
-	$(NASM) $(NFLAGS) -o $@ $<
+	$(NASM) $(NFLAGS)      -o $@ $<
 
 %.o: %.rc
 	$(WINDRES) $(WFLAGS) $< $@
 
+.PHONY: clean
 clean:
-	$(RM) $(TARGET) $(OBJS)
+	$(RM) *.exe *.dll *.exe-pure *.dll-pure $(OBJS) $(DLL_OBJS)
