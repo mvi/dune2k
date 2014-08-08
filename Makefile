@@ -2,7 +2,6 @@
 
 GAME        = dune2000
 
-REV         = $(shell sh -c 'git rev-parse --short @{0}')
 LSCRIPT     = $(GAME).lds
 INBIN       = $(GAME).dat
 ALIGNMENT   = 0x0400
