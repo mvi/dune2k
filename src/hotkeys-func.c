@@ -93,6 +93,14 @@ void HandleKeyEvent(int key, int keyIsDown)
 	else if (key == CenterSelectedUnits) offset = VK_HOME;
 	else offset = key;
 	
+	switch (offset)
+	{
+		case VK_MBUTTON:
+		case VK_XBUTTON1:
+		case VK_XBUTTON2:
+			return;
+	}
+	
 	if (keyIsDown)
 	{
 		keymap1[offset] = 1;

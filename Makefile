@@ -8,7 +8,7 @@ src/no-cd.o \
 src/network-variables.o \
 src/wol-fixes.o \
 src/hotkeys-func.o \
-src/mousewheel-scrolling.o \
+src/mouse-wheel-and-buttons.o \
 res/dune2000.o
 TARGET	= dune2000.exe
 
