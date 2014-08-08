@@ -9,6 +9,7 @@ src/network-variables.o \
 src/wol-fixes.o \
 src/hotkeys-func.o \
 src/mouse-wheel-and-buttons.o \
+src/mouse-wheel-and-buttons-func.o \
 res/dune2000.o
 TARGET	= dune2000.exe
 
