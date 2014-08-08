@@ -43,8 +43,8 @@
     %else
         %push __replace
 
-        %if !((%2 - %1) > 5)
-            %error "start must be at least 5 bytes (the size of a long jump) after end"
+        %if %2 - (%1 + 5) < 0
+            %error "end must be at least 5 bytes (the size of a long jump) after start"
         %endif
 
         @CLEAR %1 + 5, 0xCC, %2

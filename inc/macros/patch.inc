@@ -42,8 +42,14 @@
     @ENDPATCH
 %endmacro
 
+;; arg1 : start address, will clear this
+;; arg2 : what byte to put here. but be a byte long or shit breaks
+;; arg3 : stop address, will NOT clear this.
 %macro @CLEAR 3
     @PATCH %1
+    %if (%3 - %1) < 0
+        %error "stop address is less than start address in @CLEAR"
+    %endif
     times (%3 - %1) db %2 ; patch data
     @ENDPATCH
 %endmacro
