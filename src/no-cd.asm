@@ -1,4 +1,4 @@
-%include "patch.inc"
+%include "macros/patch.inc"
 
 @CLEAR 0x004035EE, 0x90, 0x00403601
 

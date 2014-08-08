@@ -1,4 +1,4 @@
-%include "patch.inc"
+%include "macros/patch.inc"
 
 @LJMP 0x004A3249, WindowMessage
 @LJMP 0x00444019, WheelScrollingUp

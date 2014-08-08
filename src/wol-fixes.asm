@@ -1,4 +1,4 @@
-%include "patch.inc"
+%include "macros/patch.inc"
 
 ;Fix for the HelpURLError, caused by broken WOL installations
 @CLEAR 0x0040C72A, 0x90, 0x0040C740

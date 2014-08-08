@@ -1,4 +1,4 @@
-%include "patch.inc"
+%include "macros/patch.inc"
 
 @CLEAR 0x0045A983, 0x90, 0x0045A9C1
 @LJMP 0x0045A983, LAN_Settings

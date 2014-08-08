@@ -1,4 +1,4 @@
-%include "patch.inc"
+%include "macros/patch.inc"
 
 @CLEAR 0x004A33A4, 0x90, 0x004A33B0
 @LJMP 0x004A33A4, WM_KeyDown

@@ -32,7 +32,7 @@
         %pop
         __SECT__
     %else
-        %error "no corresponding `@PATCH'"
+        %error "no corrosponding `@PATCH'"
     %endif
 %endmacro
 
@@ -67,9 +67,4 @@
     db 0xE8               ; far call
     dd %2 - %1 - 5        ; relative offset
     @ENDPATCH
-%endmacro
-
-%macro setsym 2
-    global %2
-    %2 equ %1
 %endmacro
