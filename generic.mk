@@ -2,7 +2,7 @@
 
 REV         ?= UNKNOWN_VERSION
 
-CP          ?= cp
+CP          ?= copy
 RM          ?= rm -f
 CC          ?= gcc
 CXX         ?= clang++
