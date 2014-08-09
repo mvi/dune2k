@@ -14,7 +14,7 @@
 
         %$begin equ %1
 
-        @LJMP %1, %2
+        @LJMP {(%1)}, {(%2)}
         [section .text]
         align 16, db 0xCC
         %2:
@@ -43,12 +43,12 @@
     %else
         %push __replace
 
-        %if %2 - (%1 + 5) < 0
+        %if %2 - ((%1) + 5) < 0
             %error "end must be at least 5 bytes (the size of a long jump) after start"
         %endif
 
-        @CLEAR %1 + 5, 0xCC, %2
-        @HACK %1, %3
+        @CLEAR {(%1) + 5}, 0xCC, {(%2)}
+        @HACK {(%1)}, {%3}
 
         %$end equ %2
     %endif
