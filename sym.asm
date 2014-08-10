@@ -19,6 +19,24 @@ setcglob 0x004B2810, start
 setcglob 0x004EB048, MousePositionX
 setcglob 0x004EB04C, MousePositionY
 
+setcglob 0x00798544, MySideID
+setcglob 0x006B8274, Win
+setcglob 0x006B8278, Lose
+setcglob 0x004E8BF0, DifficultyLevel
+setcglob 0x00797E34, GameType
+
+setcglob 0x007984C4, NetworkGame
+setcglob 0x004E3B00, NetUnitCount
+setcglob 0x004E3B04, NetTechLevel
+setcglob 0x004E3B0C, NetAIPlayers
+setcglob 0x004E8BEC, MaxPlayers
+setcglob 0x004F3D3C, TournamentGame
+setcglob 0x004F3D40, PrivateGame
+setcglob 0x006B9834, NetCrates
+setcglob 0x006B9838, NetWorms
+setcglob 0x006B9848, NetPlayerHandicap
+
+
 ;; Functions
 
 setcglob 0x0042DC00, TextOnScreen
