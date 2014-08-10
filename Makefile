@@ -10,7 +10,7 @@ IMPORT      = 1 0x4CF000 280
 VSIZE       = .data 0x3F5AD4
 
 
-INCLUDES    = -Iinc/
+INCLUDES    = -Iinc/ -Icommon/inc/
 
 LIBS        = -nostdlib
 OBJS        = callsites.o \
@@ -35,6 +35,6 @@ $(GAME).exe: link/dump/patch/import/vsize/$(GAME).exe
 
 $(GAME).dll: link/dump/$(GAME).dll
 
-include generic.mk
+include common/generic.mk
 
-WFLAGS	   += -Ires/
+WFLAGS	   += -Ires/ -Icommon/res/
