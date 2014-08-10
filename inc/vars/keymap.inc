@@ -1,5 +1,5 @@
-%define KeyIsDown1(arg1) (arg1)+0x798390;
-%define KeyIsDown2(arg1) (arg1)+0x797E78;
+%define KeyIsDown1(key) (key)+0x798390;
+%define KeyIsDown2(key) (key)+0x797E78;
 
 %assign A_Key 0x41
 %assign B_Key 0x42
@@ -39,7 +39,6 @@
 %assign VK_F10 0x79
 %assign VK_F11 0x7A
 %assign VK_F12 0x7B
-%assign Spacebar_Key 0x20
 %assign VK_UP 0x26
 %assign VK_DOWN 0x28
 %assign VK_SPACE 0x20

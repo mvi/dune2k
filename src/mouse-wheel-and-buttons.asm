@@ -6,11 +6,11 @@ extern _HandleWindowMessage
 extern _MouseWheelTriggered
 
 
-@CALLC 0x004A3249, 0x004A324E, WindowMessage
+@CALLC 0x004A3249, 0x004A324E, 2, WindowMessage
     push ecx
     push esi
     call _HandleWindowMessage
-@FINISHCALLC 2
+@FINISHCALLC
     cmp  esi,0x14
     ja   0x004A328F
 @ENDCALLC

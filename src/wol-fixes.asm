@@ -8,10 +8,10 @@
 ;Do -NOT- show the registration dialog if there are no accounts found in the registry
 @CLEAR 0x0047841A, 0x90, 0x00478424
 
-%assign WOLGameRoomMaxPlayers 0x4E8BEC
+extern _WOLGameRoomPlayerLimit
 
 @REPLACE 0x0043BD7B, 0x0043BD81, WOL_6Player
     add esp,0x8AC
-    mov byte[WOLGameRoomMaxPlayers],0x6
+    mov byte[_WOLGameRoomPlayerLimit],0x6
     jmp %$end
 @ENDREPLACE

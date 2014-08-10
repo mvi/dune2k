@@ -8,27 +8,27 @@
 @SET 0x00470834, db 0x00
 
 @REPLACE 0x0045A983, 0x0045A9C1, LAN_Settings
-    mov  dword [InitialConnectTimeOut],15000
-    mov  dword [ReconnectTimeOutToPlayer],6
-    mov  dword [SendRate],150
-    mov  dword [UnknownNetVar1],180
-    mov  dword [UnknownNetVar2],40
-    mov  dword [UnknownNetVar3],300
-    mov  dword [UnknownNetVar4],1500
-    mov  dword [UnknownNetVar5],0x40066666
+    mov  dword [_InitialConnectTimeOut],15000
+    mov  dword [_ReconnectTimeOutToPlayer],6
+    mov  dword [_SendRate],150
+    mov  dword [_UnknownNetVar1],180
+    mov  dword [_UnknownNetVar2],40
+    mov  dword [_UnknownNetVar3],300
+    mov  dword [_UnknownNetVar4],1500
+    mov  dword [_UnknownNetVar5],0x40066666
     jmp  0x0045AA2C ; not %$end on purpose!
 @ENDREPLACE
 
 
 @REPLACE 0x0045A9C1, 0x0045A9FA, WOL_Settings
-    mov  dword [InitialConnectTimeOut],15000
-    mov  dword [ReconnectTimeOutToPlayer],30
-    mov  dword [SendRate],300
-    mov  dword [UnknownNetVar1],300
-    mov  dword [UnknownNetVar2],75
-    mov  dword [UnknownNetVar3],1000
-    mov  dword [UnknownNetVar4],1500
-    mov  dword [UnknownNetVar5],0x40000000
+    mov  dword [_InitialConnectTimeOut],15000
+    mov  dword [_ReconnectTimeOutToPlayer],30
+    mov  dword [_SendRate],300
+    mov  dword [_UnknownNetVar1],300
+    mov  dword [_UnknownNetVar2],75
+    mov  dword [_UnknownNetVar3],1000
+    mov  dword [_UnknownNetVar4],1500
+    mov  dword [_UnknownNetVar5],0x40000000
     jmp  0x0045AA2C ; not %$end on purpose!
 @ENDREPLACE
 

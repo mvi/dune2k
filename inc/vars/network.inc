@@ -1,9 +1,9 @@
-%assign SendRate 0x4E3AEC
-%assign ReconnectTimeOutToPlayer 0x6B9460
-%assign InitialConnectTimeOut 0x6B9644
+extern _SendRate
+extern _ReconnectTimeOutToPlayer
+extern _InitialConnectTimeOut
 
-%assign UnknownNetVar1 0x6B93E8
-%assign UnknownNetVar2 0x4E3AE8
-%assign UnknownNetVar3 0x4E3B1C
-%assign UnknownNetVar4 0x4E3AF0
-%assign UnknownNetVar5 0x4E3AF4
+extern _UnknownNetVar1
+extern _UnknownNetVar2
+extern _UnknownNetVar3
+extern _UnknownNetVar4
+extern _UnknownNetVar5

@@ -97,13 +97,6 @@ void HandleKeyEvent(int key, bool keyIsDown)
 			return;
 	}
 	
-	if (keyIsDown)
-	{
-		KeyIsDown1[destKey] = true;
-		KeyIsDown2[destKey] = true;
-	}
-	else
-	{
-		KeyIsDown2[destKey] = false;
-	}
+	if (keyIsDown) KeyIsDown1[destKey] = true;
+	KeyIsDown2[destKey] = keyIsDown;
 }

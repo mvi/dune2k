@@ -16,6 +16,19 @@ setcglob 0x004B2810, start
 
 ;; Variables
 
+;Network settings
+setcglob 0x4E3AEC, SendRate
+setcglob 0x6B9460, ReconnectTimeOutToPlayer
+setcglob 0x6B9644, InitialConnectTimeOut
+
+setcglob 0x6B93E8, UnknownNetVar1 
+setcglob 0x4E3AE8, UnknownNetVar2
+setcglob 0x4E3B1C, UnknownNetVar3
+setcglob 0x4E3AF0, UnknownNetVar4
+setcglob 0x4E3AF4, UnknownNetVar5
+
+;Others
+
 setcglob 0x004EB048, MousePositionX
 setcglob 0x004EB04C, MousePositionY
 
@@ -40,7 +53,7 @@ setcglob 0x007BCACC, AtreidesMoney
 
 setcglob 0x005178C4, DebugMode
 
-
+setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
 ;; Functions
 
