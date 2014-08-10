@@ -17,7 +17,7 @@ OBJS        = callsites.o \
 		\
 		src/hotkeys.o \
 		src/no-cd.o \
-		src/network-variables.o \
+		src/multiplayer-network-settings.o \
 		src/wol-fixes.o \
 		src/hotkeys-func.o \
 		src/mouse-wheel-and-buttons.o \

@@ -1,8 +1,4 @@
-#include <windows.h>
-#include <winuser.h>
-
-unsigned char *keymap1 = (void*)0x798390;
-unsigned char *keymap2 = (void*)0x797E78;
+#include <vars/keymap.h>
 
 //Below you can find the hotkeys, change them as you like
 //You can find the Virtual-Key Codes (e.g. VK_F9) here: http://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
@@ -48,52 +44,52 @@ int WOLProposeDraw = 'D';
 int CenterSelectedUnits = VK_HOME;
 
 
-void HandleKeyEvent(int key, int keyIsDown)
+void HandleKeyEvent(int key, bool keyIsDown)
 {
-	int offset;
+	int destKey;
 	
-	if (key == SelectAllUnits) offset = 'E';
-	else if (key == Scatter) offset = 'X';
-	else if (key == CenterNextUnit) offset = 'N';
-	else if (key == Repair) offset = 'T';
-	else if (key == Sell) offset = 'Y';
-	else if (key == Guard) offset = 'G';
-	else if (key == CenterBase) offset = 'H';
-	else if (key == Stop) offset = 'S';
-	else if (key == Bookmark1) offset = VK_F9;
-	else if (key == Bookmark2) offset = VK_F10;
-	else if (key == Bookmark3) offset = VK_F11;
-	else if (key == Bookmark4) offset = VK_F12;
-	else if (key == SidebarUp) offset = VK_UP;
-	else if (key == SidebarDown) offset = VK_DOWN;
-	else if (key == Alliance) offset = 'A';
-	else if (key == Retreat) offset = 'R';
-	else if (key == OptionsMenu) offset = VK_ESCAPE;
-	else if (key == Team1) offset = '1';
-	else if (key == Team2) offset = '2';
-	else if (key == Team3) offset = '3';
-	else if (key == Team4) offset = '4';
-	else if (key == Team5) offset = '5';
-	else if (key == Team6) offset = '6';
-	else if (key == Team7) offset = '7';
-	else if (key == Team8) offset = '8';
-	else if (key == Team9) offset = '9';
-	else if (key == Team10) offset = '0';
-	else if (key == CTRL) offset = VK_CONTROL;
-	else if (key == ALT) offset = VK_MENU;
-	else if (key == SHIFT) offset = VK_SHIFT;
-	else if (key == PrivateChat1) offset = VK_F1;
-	else if (key == PrivateChat2) offset = VK_F2;
-	else if (key == PrivateChat3) offset = VK_F3;
-	else if (key == PrivateChat4) offset = VK_F4;
-	else if (key == PrivateChat5) offset = VK_F5;
-	else if (key == PublicChat) offset = VK_F6;
-	else if (key == WOLPageReply) offset = VK_F8;
-	else if (key == WOLProposeDraw) offset = 'D';
-	else if (key == CenterSelectedUnits) offset = VK_HOME;
-	else offset = key;
+	if (key == SelectAllUnits) destKey = 'E';
+	else if (key == Scatter) destKey = 'X';
+	else if (key == CenterNextUnit) destKey = 'N';
+	else if (key == Repair) destKey = 'T';
+	else if (key == Sell) destKey = 'Y';
+	else if (key == Guard) destKey = 'G';
+	else if (key == CenterBase) destKey = 'H';
+	else if (key == Stop) destKey = 'S';
+	else if (key == Bookmark1) destKey = VK_F9;
+	else if (key == Bookmark2) destKey = VK_F10;
+	else if (key == Bookmark3) destKey = VK_F11;
+	else if (key == Bookmark4) destKey = VK_F12;
+	else if (key == SidebarUp) destKey = VK_UP;
+	else if (key == SidebarDown) destKey = VK_DOWN;
+	else if (key == Alliance) destKey = 'A';
+	else if (key == Retreat) destKey = 'R';
+	else if (key == OptionsMenu) destKey = VK_ESCAPE;
+	else if (key == Team1) destKey = '1';
+	else if (key == Team2) destKey = '2';
+	else if (key == Team3) destKey = '3';
+	else if (key == Team4) destKey = '4';
+	else if (key == Team5) destKey = '5';
+	else if (key == Team6) destKey = '6';
+	else if (key == Team7) destKey = '7';
+	else if (key == Team8) destKey = '8';
+	else if (key == Team9) destKey = '9';
+	else if (key == Team10) destKey = '0';
+	else if (key == CTRL) destKey = VK_CONTROL;
+	else if (key == ALT) destKey = VK_MENU;
+	else if (key == SHIFT) destKey = VK_SHIFT;
+	else if (key == PrivateChat1) destKey = VK_F1;
+	else if (key == PrivateChat2) destKey = VK_F2;
+	else if (key == PrivateChat3) destKey = VK_F3;
+	else if (key == PrivateChat4) destKey = VK_F4;
+	else if (key == PrivateChat5) destKey = VK_F5;
+	else if (key == PublicChat) destKey = VK_F6;
+	else if (key == WOLPageReply) destKey = VK_F8;
+	else if (key == WOLProposeDraw) destKey = 'D';
+	else if (key == CenterSelectedUnits) destKey = VK_HOME;
+	else destKey = key;
 	
-	switch (offset)
+	switch (destKey)
 	{
 		case VK_MBUTTON:
 		case VK_XBUTTON1:
@@ -103,11 +99,11 @@ void HandleKeyEvent(int key, int keyIsDown)
 	
 	if (keyIsDown)
 	{
-		keymap1[offset] = 1;
-		keymap2[offset] = 1;
+		KeyIsDown1[destKey] = true;
+		KeyIsDown2[destKey] = true;
 	}
 	else
 	{
-		keymap2[offset] = 0;
+		KeyIsDown2[destKey] = false;
 	}
 }

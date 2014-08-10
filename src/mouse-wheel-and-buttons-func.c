@@ -1,13 +1,7 @@
-#include <windows.h>
-#include <winuser.h>
-#include <stdbool.h>
+#include <vars/keymap.h>
 
 void HandleKeyEvent(int key, bool keyIsDown);
 
-bool *UpArrowKeyIsDown1 = (void*)0x26+0x797E78;
-bool *UpArrowKeyIsDown2 = (void*)0x26+0x798390;
-bool *DownArrowKeyIsDown1 = (void*)0x28+0x797E78;
-bool *DownArrowKeyIsDown2 = (void*)0x28+0x798390;
 bool MouseWheelTriggered = false;
 
 void HandleWindowMessage(int message, int wParam)
@@ -21,13 +15,13 @@ void HandleWindowMessage(int message, int wParam)
 			MouseWheelTriggered = true;
 			if (hi > 0) //MouseWheel Up
 			{
-				*UpArrowKeyIsDown1 = true;
-				*UpArrowKeyIsDown2 = true;
+				KeyIsDown1[VK_UP] = true;
+				KeyIsDown2[VK_UP] = true;
 			}
 			else //MouseWheel Down
 			{
-				*DownArrowKeyIsDown1 = true;
-				*DownArrowKeyIsDown2 = true;
+				KeyIsDown1[VK_DOWN] = true;
+				KeyIsDown2[VK_DOWN] = true;
 			}
 			break;
 		case WM_MBUTTONDOWN:
