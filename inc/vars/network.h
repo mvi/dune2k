@@ -1,4 +1,4 @@
-int *SendRate 0x4E3AEC
+int *SendRate = (void*)0x4E3AEC
 int *ReconnectTimeOutToPlayer = (void*)0x6B9460
 int *InitialConnectTimeOut = (void*)0x6B9644
 

@@ -1,5 +1,5 @@
-%define KeyIsDown1(x) (x)+0x798390;
-%define KeyIsDown2(x) (x)+0x797E78;
+%define KeyIsDown1(arg1) (arg1)+0x798390;
+%define KeyIsDown2(arg1) (arg1)+0x797E78;
 
 %assign A_Key 0x41
 %assign B_Key 0x42
