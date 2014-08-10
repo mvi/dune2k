@@ -13,4 +13,15 @@
 %include "macros/setsym.inc"
 
 setcglob 0x004B2810, start
+
+;; Variables
+
+setcglob 0x004EB048, MousePositionX
+setcglob 0x004EB04C, MousePositionY
+
+;; Functions
+
+setcglob 0x0042DC00, TextOnScreen
+
+
 ;setcglob <mystery-addr>, WinMain@16
