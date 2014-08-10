@@ -1,22 +1,19 @@
 %include "macros/patch.inc"
 %include "macros/hack.inc"
-%include "macros/registers.inc"
 %include "vars/keymap.inc"
 
 extern _HandleWindowMessage
 extern _MouseWheelTriggered
 
 
-@HACK 0x004A3249, WindowMessage
-	SaveRegisters
+@CALLC 0x004A3249, 0x004A324E, WindowMessage
     push ecx
     push esi
     call _HandleWindowMessage
-	RestoreRegisters 2
+@FINISHCALLC 2
     cmp  esi,0x14
     ja   0x004A328F
-    jmp  0x004A324E
-@ENDHACK
+@ENDCALLC
 
 
 @HACK 0x00444019, WheelScrollingUp
