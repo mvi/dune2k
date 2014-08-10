@@ -1,7 +1,7 @@
-// This header works with asym.sym which defines the Vanilla symbols
+// This header works with sym.asm which defines the Vanilla symbols
 // This header will be split up as it becomes larger
 
-// Variables
+// Global Variables
 extern int MousePositionX;
 extern int MousePositionY;
 
