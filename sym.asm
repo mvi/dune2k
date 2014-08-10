@@ -36,10 +36,20 @@ setcglob 0x006B9834, NetCrates
 setcglob 0x006B9838, NetWorms
 setcglob 0x006B9848, NetPlayerHandicap
 
+setcglob 0x007BCACC, AtreidesMoney
+
+setcglob 0x005178C4, DebugMode
+
+
 
 ;; Functions
 
 setcglob 0x0042DC00, TextOnScreen
+
+setcglob 0x00459450, GenerateUnitMoveOrder
+setcglob 0x004596F0, GenerateUnitAttackUnitOrder
+setcglob 0x00455FC0, ModelBuildBuildingPick
+setcglob 0x00455510, HandleGameLoopEvents
 
 
 ;setcglob <mystery-addr>, WinMain@16

@@ -22,6 +22,13 @@ extern bool NetCrates;
 extern int NetWorms;
 extern int NetPlayerHandicap;
 
+extern int AtreidesMoney;
+
+extern bool DebugMode;
+
 
 // Functions
-unsigned char __fastcall _Text_On_Screen(int a1, int a2, int a3, int a4, int a5, int a6, unsigned char a7, int a8, int a9);
+unsigned char __fastcall TextOnScreen(int a1, int a2, int a3, int a4, int a5, int a6, unsigned char a7, int a8, int a9);
+
+int GenerateUnitMoveOrder(int,int,int);
+int GenerateUnitAttackUnitOrder(int,int,int);
