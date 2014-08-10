@@ -72,4 +72,4 @@ dump/%: %
 
 .PHONY: clean
 clean:
-	$(RM) *.exe *.dll *.exe-pure *.dll-pure $(OBJS) $(DLL_OBJS)
+	$(RM) dune2000.exe dune2000.dll dune2000.exe-pure dune2000.dll-pure $(OBJS) $(DLL_OBJS)

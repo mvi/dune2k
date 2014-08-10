@@ -66,3 +66,56 @@
         %error "no corrosponding `@REPLACE'"
     %endif
 %endmacro
+
+;; everything that @HACK does, plus: clears old code, saves registers, restores registers and jumps back to arg2
+;;
+;; arg1 : address to COMEFROM & after start clearing
+;; arg2 : address to clear to (exclusive) and destination of the final jump
+;; arg3 : name of patch (for ease of debugging)
+;;
+%macro @CALLC 3
+    %ifctx __callc
+        %error "can't nest callcs"
+    %else
+        %push __callc
+
+        %if %2 - ((%1) + 5) < 0
+            %error "end must be at least 5 bytes (the size of a long jump) after start"
+        %endif
+
+        @CLEAR {(%1) + 5}, 0xCC, {(%2)}
+        @HACK {(%1)}, {%3}
+		push ecx
+		push edx
+		push eax
+		push esi
+        %$end equ %2
+    %endif
+%endmacro
+
+%macro @FINISHCALLC 1
+    %ifctx __hack
+		add esp,((%1) * 4)
+		pop esi
+		pop eax
+		pop edx
+		pop ecx
+	%else
+        %error "no corrosponding `@CALLC'"
+    %endif
+%endmacro
+
+%macro @ENDCALLC 0
+    %ifctx __hack
+		jmp %$end
+        @ENDHACK
+        %ifctx __callc
+            %pop
+        %else
+            %error "no corrosponding `@CALLC'"
+        %endif
+    %else
+        %error "no corrosponding `@CALLC'"
+    %endif
+%endmacro
+
