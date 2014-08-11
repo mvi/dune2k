@@ -2,6 +2,7 @@
 
 REV         ?= UNKNOWN_VERSION
 
+CP          ?= copy
 RM          ?= rm -f
 CC          ?= gcc
 CXX         ?= clang++
@@ -33,31 +34,31 @@ LD_COMMON   ?= $(CFLAGS) \
 LDFLAGS     ?= $(LD_COMMON) -Wl,--file-alignment=$(ALIGNMENT)
 DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
-.SECONDARY:
+.$(GAME).exe: $(LSCRIPT) $(INBIN) $(OBJS)
+	$(CC) -T $< $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
-link-exe: $(LSCRIPT) $(INBIN) $(OBJS)
-	$(CC) -T $< $(LDFLAGS) -o $(GAME).exe $(OBJS) $(LIBS)
+.$(GAME).dll: $(DLL_OBJS)
+	$(CC) $(DLL_LDFLAGS) -o $@ $(DLL_OBJS) $(DLL_LIBS)
 
-link-dll: $(DLL_OBJS)
-	$(CC) $(DLL_LDFLAGS) -o $(GAME).dll $(DLL_OBJS) $(DLL_LIBS)
+.import-%: %
+	$(CP) $< $@
+	$(PETOOL) setdd $@ $(IMPORT)
 
-import/%: %
-	$(PETOOL) setdd $(GAME).exe $(IMPORT)
+.vsize-%: %
+	$(CP) $< $@
+	$(PETOOL) setvs $@ $(VSIZE)
 
-vsize/%: %
-	$(PETOOL) setvs $(GAME).exe $(VSIZE)
+.patch-%: %
+	$(CP) $< $@
+	-$(PETOOL) patch $@
 
-patch/%: %
-	-$(PETOOL) patch $(GAME).exe
+.strip-%: %
+	$(CP) $< $@
+	$(STRIP) -R .patch $@
 
-strip/%: %
-	$(STRIP) -R .patch $(GAME).exe
-
-dump-exe/%: %
-	$(PETOOL) dump $(GAME).exe
-
-dump-dll/%: %
-	$(PETOOL) dump $(GAME).exe
+.dump-%: %
+	$(CP) $< $@
+	$(PETOOL) dump $@
 
 %.o: %.cpp
 	$(CXX)  $(CXXFLAGS) -c -o $@ $<
@@ -73,4 +74,4 @@ dump-dll/%: %
 
 .PHONY: clean
 clean:
-	$(RM) $(GAME).exe $(GAME).dll $(OBJS) $(DLL_OBJS)
+	$(RM) *.exe *.dll $(OBJS) $(DLL_OBJS)

@@ -9,6 +9,7 @@ ALIGNMENT   = 0x0400
 IMPORT      = 1 0x4CF000 280
 VSIZE       = .data 0x3F5AD4
 
+
 INCLUDES    = -Iinc/ -Icommon/inc/
 
 OBJS        = callsites.o \
@@ -28,7 +29,8 @@ OBJS        = callsites.o \
 
 default: $(GAME).exe
 
-$(GAME).exe: dump-exe/patch/import/vsize/link-exe
+$(GAME).exe: .dump-.patch-.import-.vsize-.$(GAME).exe
+	$(CP) $< $@
 
 include common/generic.mk
 
