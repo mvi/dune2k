@@ -27,14 +27,9 @@ OBJS        = callsites.o \
 		\
 		sym.o
 
-DLL_LIBS    = -lmsvcrt
-DLL_OBJS    = $(OBJS)
-
-default: $(GAME).exe $(GAME).dll
+default: $(GAME).exe
 
 $(GAME).exe: link-exe/dump/patch/import/vsize
-
-$(GAME).dll: link-dll/dump
 
 include common/generic.mk
 
