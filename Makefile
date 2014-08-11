@@ -11,7 +11,6 @@ VSIZE       = .data 0x3F5AD4
 
 INCLUDES    = -Iinc/ -Icommon/inc/
 
-LIBS        = -nostdlib
 OBJS        = callsites.o \
 		\
 		src/hotkeys.o \
@@ -34,3 +33,4 @@ $(GAME).exe: link-exe/dump/patch/import/vsize
 include common/generic.mk
 
 WFLAGS	   += -Ires/ -Icommon/res/
+LDFLAGS    += -nostdlib
