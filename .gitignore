@@ -4,16 +4,6 @@
 # patched machine code
 *.exe
 *.dll
-*.exe-pure
-*.dll-pure
-
-# PETool on unix
-/petool
-
-# Yuri's Revenge isn't freeware so don't include the game exe used as input
-gamemd.dat
-ra2.dat
-/ra2/bin.dat
 
 # configuration
 config.mk
