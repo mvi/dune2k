@@ -10,5 +10,6 @@ void WriteIni(LPCTSTR section, LPCTSTR key, LPCTSTR value, LPCTSTR fileName)
 	hModule = LoadLibraryA("Kernel32.dll");
 	if (hModule == NULL) return;
 	iniWriter = (IniWriter)GetProcAddress(hModule,"WritePrivateProfileStringA");
+	if (iniWriter == NULL) return;
 	iniWriter(section, key, value, fileName);
 }
