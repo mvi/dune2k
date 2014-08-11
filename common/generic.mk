@@ -34,10 +34,10 @@ LD_COMMON   ?= $(CFLAGS) \
 LDFLAGS     ?= $(LD_COMMON) -Wl,--file-alignment=$(ALIGNMENT)
 DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
-.link-$(GAME).exe: $(LSCRIPT) $(INBIN) $(OBJS)
+.$(GAME).exe: $(LSCRIPT) $(INBIN) $(OBJS)
 	$(CC) -T $< $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
-.link-$(GAME).dll: $(DLL_OBJS)
+.$(GAME).dll: $(DLL_OBJS)
 	$(CC) $(DLL_LDFLAGS) -o $@ $(DLL_OBJS) $(DLL_LIBS)
 
 .import-%: %
