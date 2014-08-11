@@ -35,26 +35,29 @@ DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
 .SECONDARY:
 
-link-exe/%: $(LSCRIPT) $(INBIN) $(OBJS)
+link-exe: $(LSCRIPT) $(INBIN) $(OBJS)
 	$(CC) -T $< $(LDFLAGS) -o $(GAME).exe $(OBJS) $(LIBS)
 
-link-dll/%: $(DLL_OBJS)
+link-dll: $(DLL_OBJS)
 	$(CC) $(DLL_LDFLAGS) -o $(GAME).dll $(DLL_OBJS) $(DLL_LIBS)
 
 import/%: %
-	$(PETOOL) setdd $(*F) $(IMPORT)
+	$(PETOOL) setdd $(GAME).exe $(IMPORT)
 
 vsize/%: %
-	$(PETOOL) setvs $(*F) $(VSIZE)
+	$(PETOOL) setvs $(GAME).exe $(VSIZE)
 
 patch/%: %
-	-$(PETOOL) patch $(*F)
+	-$(PETOOL) patch $(GAME).exe
 
 strip/%: %
-	$(STRIP) -R .patch $(*F)
+	$(STRIP) -R .patch $(GAME).exe
 
-dump/%: %
-	$(PETOOL) dump $(*F)
+dump-exe/%: %
+	$(PETOOL) dump $(GAME).exe
+
+dump-dll/%: %
+	$(PETOOL) dump $(GAME).exe
 
 %.o: %.cpp
 	$(CXX)  $(CXXFLAGS) -c -o $@ $<
