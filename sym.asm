@@ -89,8 +89,8 @@ setcglob 0x004596F0, GenerateUnitAttackUnitOrder
 setcglob 0x00455FC0, ModelBuildBuildingPick
 setcglob 0x00455510, HandleGameLoopEvents
 
-setcglob 0x00478C20, ReadDune2000Cfg
-setcglob 0x00478FA0, WriteDune2000Cfg
+setcglob 0x00478C20, LoadDune2000Cfg
+setcglob 0x00478FA0, SaveDune2000Cfg
 
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA

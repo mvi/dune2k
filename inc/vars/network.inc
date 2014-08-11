@@ -1,9 +1,0 @@
-extern _SendRate
-extern _ReconnectTimeOutToPlayer
-extern _InitialConnectTimeOut
-
-extern _UnknownNetVar1
-extern _UnknownNetVar2
-extern _UnknownNetVar3
-extern _UnknownNetVar4
-extern _UnknownNetVar5

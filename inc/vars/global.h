@@ -93,6 +93,5 @@ unsigned char __fastcall TextOnScreen(int a1, int a2, int a3, int a4, int a5, in
 int GenerateUnitMoveOrder(int,int,int);
 int GenerateUnitAttackUnitOrder(int,int,int);
 
-void ReadDune2000Cfg();
-void WriteDune2000Cfg();
-
+void LoadDune2000Cfg();
+void SaveDune2000Cfg();

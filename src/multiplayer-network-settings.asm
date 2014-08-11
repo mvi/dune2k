@@ -1,6 +1,6 @@
 %include "macros/patch.inc"
 %include "macros/hack.inc"
-%include "vars/network.inc"
+%include "vars/global.inc"
 
 %assign WOLGameVersion 3
 

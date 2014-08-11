@@ -1,22 +1,21 @@
 #include <windows.h>
 #include <macros/patch.h>
 #include <vars/global.h>
+#include <ini-file.h>
 
-CALL(0x00470BA0, _WriteDune2000Ini);
-CALL(0x00470A68, _ReadDune2000Ini);
-
-void WriteIni(LPCTSTR section, LPCTSTR key, LPCTSTR value, LPCTSTR fileName);
+CALL(0x00470BA0, _SaveDune2000Ini);
+CALL(0x00470A68, _LoadDune2000Ini);
 
 const LPCTSTR dune2000Ini = ".\\dune2000.ini";
 
-void WriteDune2000Ini()
+void SaveDune2000Ini()
 {
 	//WriteIni("section","key","value", dune2000Ini);
 	
-	WriteDune2000Cfg();
+	SaveDune2000Cfg();
 }
 
-void ReadDune2000Ini()
+void LoadDune2000Ini()
 {
-	ReadDune2000Cfg();
+	LoadDune2000Cfg();
 }
