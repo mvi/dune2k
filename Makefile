@@ -22,6 +22,8 @@ OBJS        = callsites.o \
 		src/hotkeys-func.o \
 		src/mouse-wheel-and-buttons.o \
 		src/mouse-wheel-and-buttons-func.o \
+		src/dune2000.ini.o \
+		src/ini-file.o \
 		res/dune2000.o \
 		\
 		sym.o

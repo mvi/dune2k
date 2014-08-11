@@ -14,7 +14,7 @@
 
 setcglob 0x004B2810, start
 
-;; Variables
+;; ### Variables ###
 
 ;Network settings
 setcglob 0x4E3AEC, SendRate
@@ -80,7 +80,7 @@ setcglob 0x005178C4, DebugMode
 
 setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
-;; Functions
+;; ### Functions ###
 
 setcglob 0x0042DC00, TextOnScreen
 
@@ -88,6 +88,13 @@ setcglob 0x00459450, GenerateUnitMoveOrder
 setcglob 0x004596F0, GenerateUnitAttackUnitOrder
 setcglob 0x00455FC0, ModelBuildBuildingPick
 setcglob 0x00455510, HandleGameLoopEvents
+
+setcglob 0x00478C20, ReadDune2000Cfg
+setcglob 0x00478FA0, WriteDune2000Cfg
+
+; winapi
+setcglob 0x008CF5EC, _imp__LoadLibraryA
+setcglob 0x008CF584, _imp__GetProcAddress
 
 
 ;setcglob <mystery-addr>, WinMain@16
