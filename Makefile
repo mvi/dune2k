@@ -29,7 +29,7 @@ OBJS        = callsites.o \
 
 default: $(GAME).exe
 
-$(GAME).exe: link/dump/patch/import/vsize/$(GAME).exe
+$(GAME).exe: dump/patch/import/vsize/link/$(GAME).exe
 
 
 include common/generic.mk
