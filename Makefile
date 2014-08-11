@@ -9,7 +9,6 @@ ALIGNMENT   = 0x0400
 IMPORT      = 1 0x4CF000 280
 VSIZE       = .data 0x3F5AD4
 
-
 INCLUDES    = -Iinc/ -Icommon/inc/
 
 LIBS        = -nostdlib
@@ -33,9 +32,9 @@ DLL_OBJS    = $(OBJS)
 
 default: $(GAME).exe $(GAME).dll
 
-$(GAME).exe: link/dump/patch/import/vsize/$(GAME).exe
+$(GAME).exe: link-exe/dump/patch/import/vsize
 
-$(GAME).dll: link/dump/$(GAME).dll
+$(GAME).dll: link-dll/dump
 
 include common/generic.mk
 

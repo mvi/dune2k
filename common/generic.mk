@@ -2,7 +2,6 @@
 
 REV         ?= UNKNOWN_VERSION
 
-CP          ?= copy
 RM          ?= rm -f
 CC          ?= gcc
 CXX         ?= clang++
@@ -34,14 +33,13 @@ LD_COMMON   ?= $(CFLAGS) \
 LDFLAGS     ?= $(LD_COMMON) -Wl,--file-alignment=$(ALIGNMENT)
 DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
-$(GAME).exe-pure: $(LSCRIPT) $(INBIN) $(OBJS)
-	$(CC) -T $< $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+.SECONDARY:
 
-$(GAME).dll-pure: $(DLL_OBJS)
-	$(CC) $(DLL_LDFLAGS) -o $@ $(DLL_OBJS) $(DLL_LIBS)
+link-exe/%: $(LSCRIPT) $(INBIN) $(OBJS)
+	$(CC) -T $< $(LDFLAGS) -o $(GAME).exe $(OBJS) $(LIBS)
 
-link/%: %-pure
-	$(CP) $(*F)-pure $(*F)
+link-dll/%: $(DLL_OBJS)
+	$(CC) $(DLL_LDFLAGS) -o $(GAME).dll $(DLL_OBJS) $(DLL_LIBS)
 
 import/%: %
 	$(PETOOL) setdd $(*F) $(IMPORT)
@@ -72,4 +70,4 @@ dump/%: %
 
 .PHONY: clean
 clean:
-	$(RM) dune2000.exe dune2000.dll dune2000.exe-pure dune2000.dll-pure $(OBJS) $(DLL_OBJS)
+	$(RM) $(GAME).exe $(GAME).dll $(OBJS) $(DLL_OBJS)
