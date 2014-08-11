@@ -82,6 +82,8 @@ setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
 ;; ### Functions ###
 
+setcglob 0x005A3BB0, WinMain
+
 setcglob 0x0042DC00, TextOnScreen
 
 setcglob 0x00459450, GenerateUnitMoveOrder
@@ -95,6 +97,12 @@ setcglob 0x00478FA0, SaveDune2000Cfg
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
 setcglob 0x008CF584, _imp__GetProcAddress
+setcglob 0x008CF598, _imp__GetStdHandle
+setcglob 0x008CF4E4, _imp__WriteFile
 
+; stdio
+setcglob 0x004B15B0, vsprintf
+setcglob 0x004B0670, sprintf
+setcglob 0x004B2B60, strlen
 
 ;setcglob <mystery-addr>, WinMain@16

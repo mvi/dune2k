@@ -14,6 +14,7 @@ INCLUDES    = -Iinc/ -Icommon/inc/
 
 OBJS        = callsites.o \
 		\
+		src/stdio.o \
 		src/hotkeys.o \
 		src/no-cd.o \
 		src/multiplayer-network-settings.o \
@@ -34,5 +35,6 @@ $(GAME).exe: .dump-.patch-.import-.vsize-.$(GAME).exe
 
 include common/generic.mk
 
+CFLAGS	   += -D_MSVCRT_
 WFLAGS	   += -Ires/ -Icommon/res/
 LDFLAGS    += -nostdlib
