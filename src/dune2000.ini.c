@@ -10,23 +10,6 @@ LPCTSTR dune2000Ini = ".\\dune2000.ini";
 
 void SaveDune2000Ini()
 {
-	//IniSetString("section","key","value", dune2000Ini);
-	//IniSetBool("section","key", true, dune2000Ini);
-	//IniSetInt("section","key", 24563187, dune2000Ini);
-
-	//IniGetString("section", "key", "herpaDerp", dune2000Ini, test, 50);
-	//bool test = IniGetBool("section", "key", false, dune2000Ini);
-	//int test = IniGetInt("section", "key", 2555, dune2000Ini);
-	
-	//D2kIniSetString("section","key","value");
-	//D2kIniSetBool("section","key", true);
-	//D2kIniSetInt("section","key", 24563187);
-	
-	//D2kIniGetString("section", "key", "herpaDerp", test, 50);
-	//bool test = D2kIniGetBool("section", "key", false);
-	//int test = D2kIniGetInt("section", "key", 2555);
-	
-	
 	D2kIniSetBool("MultiPlayer", "FirstTimePlay", FirstTimePlay);
 	D2kIniSetInt("MultiPlayer", "UnitCount", NetUnitCount);
 	D2kIniSetInt("MultiPlayer", "TechLevel", NetTechLevel);
@@ -53,15 +36,38 @@ void SaveDune2000Ini()
 	D2kIniSetBool("WOL", "ShowAllGames", ShowAllGames);
 	D2kIniSetBool("WOL", "Microphone", Microphone);
 
-
-	//OutputDebugStringA(test);
-	
 	SaveDune2000Cfg();
 }
 
 void LoadDune2000Ini()
 {
 	LoadDune2000Cfg();
+	
+	FirstTimePlay = D2kIniGetBool("MultiPlayer", "FirstTimePlay", true);
+	NetUnitCount = D2kIniGetInt("MultiPlayer", "UnitCount", 10);
+	NetTechLevel = D2kIniGetInt("MultiPlayer", "TechLevel", 7);
+	NetStartingCredits = D2kIniGetInt("MultiPlayer", "StartingCredits", 7000);
+	NetAIPlayers = D2kIniGetInt("MultiPlayer", "AIPlayers", 0);
+	NetCrates = D2kIniGetBool("MultiPlayer", "Crates", false);
+	NetWorms = D2kIniGetInt("MultiPlayer", "Worms", 0);
+	D2kIniGetString("MultiPlayer", "PlayerName", "NONAME", NetPlayerName, 100);
+	NetPlayerSide = D2kIniGetInt("MultiPlayer", "PlayerSide", 0);
+	NetPlayerColor = D2kIniGetInt("MultiPlayer", "PlayerColor", 0);
+	D2kIniGetString("MultiPlayer", "IPAddress", "", NetIPAddress, 100);
+	D2kIniGetString("MultiPlayer", "ModemPhone", "", NetModemPhone, 100);
+	NetSerialComPort = D2kIniGetInt("MultiPlayer", "SerialComPort", 1);
+
+	ScrollRate = D2kIniGetInt("Options", "ScrollRate", 20);
+	GameSpeed = D2kIniGetInt("Options", "GameSpeed", 75);
+	GameBitsPerPixel = D2kIniGetInt("Options", "GameBitsPerPixel", 16);
+	SFXVolume = D2kIniGetInt("Options", "SFXVolume", 100);
+	MusicVolume = D2kIniGetInt("Options", "MusicVolume", 100);
+
+	AllowFindUser = D2kIniGetBool("WOL", "AllowFindUser", true);
+	AllowPageUser = D2kIniGetBool("WOL", "AllowPageUser", true);
+	LanguageFilter = D2kIniGetBool("WOL", "LanguageFilter", false);
+	ShowAllGames = D2kIniGetBool("WOL", "ShowAllGames", false);
+	Microphone = D2kIniGetBool("WOL", "Microphone", false);
 }
 
 
