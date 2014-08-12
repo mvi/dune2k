@@ -99,11 +99,23 @@ setcglob 0x008CF5EC, _imp__LoadLibraryA
 setcglob 0x008CF584, _imp__GetProcAddress
 setcglob 0x008CF598, _imp__GetStdHandle
 setcglob 0x008CF4E4, _imp__WriteFile
+setcglob 0x008CF4F8, _imp__OutputDebugStringA
+
 
 ; stdio
 setcglob 0x004B15B0, vsprintf
 setcglob 0x004B0670, sprintf
 setcglob 0x004B2B60, strlen
+
+
+setcglob 0x004b1700, tolower
+setcglob 0x004b2ad0, strcmp
+setcglob 0x004b0e30, malloc
+setcglob 0x004b29e0, strcpy
+setcglob 0x004b0ee0, free
+setcglob 0x004b07a0, atoi
+
+
 
 ;setcglob <mystery-addr>, WinMain@16
 
@@ -382,7 +394,6 @@ setcglob 0x004B2B60, strlen
 ;setcglob {SECT_TEXT  + 000AF6E0}, ;       operator new(uint)
 ;setcglob {SECT_TEXT  + 000AF6F0}, ;       operator delete(void *)
 ;setcglob {SECT_TEXT  + 000AF700}, ;       _atol
-;setcglob {SECT_TEXT  + 000AF7A0}, ;       _atoi
 ;setcglob {SECT_TEXT  + 000AF7B0}, ;       _strncpy
 ;setcglob {SECT_TEXT  + 000AF8B0}, ;       _strtok
 ;setcglob {SECT_TEXT  + 000AF990}, ;       _JumpToContinuation(void *,EHRegistrationNode *)
@@ -404,10 +415,8 @@ setcglob 0x004B2B60, strlen
 ;setcglob {SECT_TEXT  + 000AFDC6}, ;       __NLG_Notify
 ;setcglob {SECT_TEXT  + 000AFDD9}, ;       __NLG_Dispatch
 ;setcglob {SECT_TEXT  + 000AFDE0}, ;       _sscanf
-;setcglob {SECT_TEXT  + 000AFE30}, ;       _malloc
 ;setcglob {SECT_TEXT  + 000AFE50}, ;       __nh_malloc
 ;setcglob {SECT_TEXT  + 000AFEA0}, ;       __heap_alloc
-;setcglob {SECT_TEXT  + 000AFEE0}, ;       _free
 ;setcglob {SECT_TEXT  + 000AFF30}, ;       __fpmath
 ;setcglob {SECT_TEXT  + 000AFF60}, ;       __cfltcvt_init
 ;setcglob {SECT_TEXT  + 000AFFA0}, ;       __fsopen
@@ -421,7 +430,6 @@ setcglob 0x004B2B60, strlen
 ;setcglob {SECT_TEXT  + 000B0410}, ;       _realloc
 ;setcglob {SECT_TEXT  + 000B05B0}, ;       _vsprintf
 ;setcglob {SECT_TEXT  + 000B0640}, ;       __strlwr
-;setcglob {SECT_TEXT  + 000B0700}, ;       _tolower
 ;setcglob {SECT_TEXT  + 000B0810}, ;       _rand
 ;setcglob {SECT_TEXT  + 000B0840}, ;       __ftol
 ;setcglob {SECT_TEXT  + 000B0870}, ;       _abort
@@ -455,9 +463,7 @@ setcglob 0x004B2B60, strlen
 ;setcglob {SECT_TEXT  + 000B17E0}, ;       _isspace
 ;setcglob {SECT_TEXT  + 000B1810}, ;       start
 ;setcglob {SECT_TEXT  + 000B19B0}, ;       __amsg_exit
-;setcglob {SECT_TEXT  + 000B19E0}, ;       _strcpy
 ;setcglob {SECT_TEXT  + 000B19F0}, ;       _strcat
-;setcglob {SECT_TEXT  + 000B1AD0}, ;       _strcmp
 ;setcglob {SECT_TEXT  + 000B1B60}, ;       _strlen
 ;setcglob {SECT_TEXT  + 000B1BE0}, ;       _memset
 ;setcglob {SECT_TEXT  + 000B1C40}, ;       __flsbuf

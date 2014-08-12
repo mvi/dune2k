@@ -74,4 +74,4 @@ DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
 .PHONY: clean
 clean:
-	$(RM) *.exe *.dll $(OBJS) $(DLL_OBJS)
+	$(RM) *dune2000.exe *dune2000.dll $(OBJS) $(DLL_OBJS)
