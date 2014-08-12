@@ -49,7 +49,7 @@ setcglob 0x006B9834, NetCrates
 setcglob 0x006B9838, NetWorms
 setcglob 0x006B93F8, NetPlayerName
 setcglob 0x006B9840, NetPlayerSide
-setcglob 0x006B9844, NetPlayerColour
+setcglob 0x006B9844, NetPlayerColor
 setcglob 0x007975D0, NetIPAddress
 setcglob 0x00797960, NetModemPhone
 setcglob 0x004E8BF4, NetSerialComPort

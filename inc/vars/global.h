@@ -55,11 +55,11 @@ extern unsigned short NetStartingCredits;
 extern unsigned char NetAIPlayers;
 extern bool NetCrates;
 extern unsigned char NetWorms;
-extern unsigned char NetPlayerName[];
+extern char NetPlayerName[];
 extern unsigned char NetPlayerSide;
-extern unsigned char NetPlayerColour;
-extern unsigned char NetIPAddress[];
-extern unsigned char NetModemPhone[];
+extern unsigned char NetPlayerColor;
+extern char NetIPAddress[];
+extern char NetModemPhone[];
 extern unsigned char NetSerialComPort;
 
 //Game settings

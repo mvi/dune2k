@@ -10,6 +10,7 @@ static HMODULE hModule;
 static WritePrivateProfileStringA_ writeIni;
 static GetPrivateProfileStringA_ readIni;
 
+// ### Write ###
 void IniSetString(LPCTSTR section, LPCTSTR key, LPCTSTR value, LPCTSTR fileName)
 {
 	if (!hModule) hModule = LoadLibraryA("Kernel32.dll");
@@ -32,43 +33,33 @@ void IniSetInt(LPCTSTR section, LPCTSTR key, int value, LPCTSTR fileName)
 }
 
 
-LPTSTR IniGetString(LPCTSTR section, LPCTSTR key, LPCTSTR defaultValue, LPCTSTR fileName)
+// ### Read ###
+void IniGetString(LPCTSTR section, LPCTSTR key, LPCTSTR defaultValue, LPCTSTR fileName, char *out, int length)
 {
 	if (!hModule) hModule = LoadLibraryA("Kernel32.dll");
-	if (!hModule) return (LPTSTR)defaultValue;
+	if (!hModule) strcpy(out, defaultValue);
 	if (!readIni) readIni = (GetPrivateProfileStringA_)GetProcAddress(hModule,"GetPrivateProfileStringA");
-	if (!readIni) return (LPTSTR)defaultValue;
-	
-	char buffer[255];
-	readIni(section, key, defaultValue, buffer, 255, fileName);
-	
-	char *result = malloc(255);
-	strcpy(result, buffer);
-	
-	return result;
+	if (!readIni) strcpy(out, defaultValue);
+	readIni(section, key, defaultValue, out, length, fileName);
 }
 
 bool IniGetBool(LPCTSTR section, LPCTSTR key, bool defaultValue, LPCTSTR fileName)
 {
-	LPTSTR value = IniGetString(section, key, defaultValue ? "Yes" : "No", fileName);
+	char value[5];
+	IniGetString(section, key, defaultValue ? "Yes" : "No", fileName, value, 5);
 	
 	char *p;
 	for (p = value; *p != '\0'; ++p) *p = tolower(*p);
 	
-	bool result = (!strcmp(value, "yes") || !strcmp(value, "true") || !strcmp(value, "1"));
-	free(value);
-	
-	return result;
+	return (!strcmp(value, "yes") || !strcmp(value, "true") || !strcmp(value, "1"));
 }
 
 int IniGetInt(LPCTSTR section, LPCTSTR key, int defaultValue, LPCTSTR fileName)
 {
 	char dvalue[10];
 	sprintf(dvalue,"%d", defaultValue);
-	LPTSTR value = IniGetString(section, key, dvalue, fileName);
+	char value[10];
+	IniGetString(section, key, dvalue, fileName, value, 10);
 	
-	int result = atoi(value);
-	free(value);
-	
-	return result;
+	return atoi(value);
 }
