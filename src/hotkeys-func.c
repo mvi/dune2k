@@ -1,7 +1,6 @@
 #include <vars/keymap.h>
 
-//Below you can find the hotkeys, change them as you like
-//You can find the Virtual-Key Codes (e.g. VK_F9) here: http://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
+//http://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
 
 int SelectAllUnits = 'E';
 int Scatter = 'X';
