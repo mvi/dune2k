@@ -2,7 +2,9 @@
 
 GAME        = dune2000
 
-LSCRIPT     = $(GAME).lds
+COMMON_DIR  = common
+
+LSCRIPT     = patch.lds
 INBIN       = $(GAME).dat
 ALIGNMENT   = 0x0400
 
@@ -10,8 +12,9 @@ IMPORT      = 1 0x4CF000 280
 VSIZE       = .data 0x3F5AD4
 
 
-INCLUDES    = -Iinc/ -Icommon/inc/
+INCLUDES    = -Iinc/ -I$(COMMON_DIR)/inc/
 
+LIBS        =
 OBJS        = callsites.o \
 		\
 		src/command-line-parameters.o \
@@ -29,13 +32,17 @@ OBJS        = callsites.o \
 		\
 		sym.o
 
+PURE_OBJS   = sym.o res/res.o
+
 default: $(GAME).exe
 
 $(GAME).exe: .dump-.patch-.import-.vsize-.$(GAME).exe
 	$(CP) $< $@
 
-include common/generic.mk
+pure-$(GAME).exe: .dump-.import-.vsize-.pure-$(GAME).exe
+	$(CP) $< $@
+
+include $(COMMON_DIR)/generic.mk
 
 CFLAGS	   += -D_MSVCRT_
-WFLAGS	   += -Ires/ -Icommon/res/
-LDFLAGS    += -nostdlib
+WFLAGS	   += -Ires/ -I$(COMMON_DIR)/res/
