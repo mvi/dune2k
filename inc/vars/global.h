@@ -76,6 +76,8 @@ extern bool SkipIntro;
 extern bool VideoBackBuffer;
 extern bool DebugMode;
 extern bool ForceNoCD;
+extern bool FullScreen;
+extern bool Force480Height;
 
 //WOL
 extern bool AllowFindUser;

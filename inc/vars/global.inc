@@ -43,7 +43,6 @@ extern _GameType
 extern _NetworkGame;
 
 ;Multiplayer settings
-extern _FirstTimePlay
 extern _NetUnitCount
 extern _NetTechLevel
 extern _NetStartingCredits
@@ -59,6 +58,7 @@ extern _NetModemPhone
 extern _NetSerialComPort
 
 ;Game settings
+extern _FirstTimePlay
 extern _ScrollRate
 extern _GameSpeed
 extern _GameBitsPerPixel

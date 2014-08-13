@@ -14,6 +14,7 @@ INCLUDES    = -Iinc/ -Icommon/inc/
 
 OBJS        = callsites.o \
 		\
+		src/command-line-parameters.o \
 		src/stdio.o \
 		src/hotkeys.o \
 		src/no-cd.o \

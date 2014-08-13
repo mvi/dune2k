@@ -28,7 +28,6 @@ setcglob 0x4E3AF0, UnknownNetVar4
 setcglob 0x4E3AF4, UnknownNetVar5
 
 ;Multiplayer settings
-setcglob 0x004E7ACC, FirstTimePlay
 setcglob 0x004E3B00, NetUnitCount
 setcglob 0x004E3B04, NetTechLevel
 setcglob 0x004E3B08, NetStartingCredits
@@ -44,6 +43,7 @@ setcglob 0x00797960, NetModemPhone
 setcglob 0x004E8BF4, NetSerialComPort
 
 ;Game settings
+setcglob 0x004E7ACC, FirstTimePlay
 setcglob 0x004EB030, ScrollRate
 setcglob 0x004E3B18, GameSpeed
 setcglob 0x004EB01C, GameBitsPerPixel
@@ -103,7 +103,8 @@ setcglob 0x00455510, HandleGameLoopEvents
 setcglob 0x00478C20, LoadDune2000Cfg
 setcglob 0x00478FA0, SaveDune2000Cfg
 
-setcglob 0x00482690, Get_CD
+setcglob 0x00482690, Get_CD ;       Get_CD::Get_CD(void)
+setcglob 0x004A39E0, Parse_Command_Line
 
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
@@ -125,10 +126,10 @@ setcglob 0x004b0e30, malloc
 setcglob 0x004b29e0, strcpy
 setcglob 0x004b0ee0, free
 setcglob 0x004b07a0, atoi
+setcglob 0x004b08b0, strtok
 
 
 ;setcglob <mystery-addr>, WinMain@16
-
 
 
 ;; ### From Hyper, uncategorized ###
@@ -348,7 +349,6 @@ setcglob 0x004b07a0, atoi
 ;setcglob {SECT_TEXT  + 00077FA0}, ;       Game_Config_Write(void)
 ;setcglob {SECT_TEXT  + 00080700}, ;       Track_For_House(char,char)
 ;setcglob {SECT_TEXT  + 000815B0}, ;       Read_Binary_String(int,int,char)
-;setcglob {SECT_TEXT  + 00081690}, ;       Get_CD::Get_CD(void)
 ;setcglob {SECT_TEXT  + 0008CC10}, ;       __Get_Text?
 ;setcglob {SECT_TEXT  + 0008CCC0}, ;       Get_Text_String(char,char)
 ;setcglob {SECT_TEXT  + 0008CD90}, ;       __Get_Sample
@@ -387,7 +387,6 @@ setcglob 0x004b07a0, atoi
 ;setcglob {SECT_TEXT  + 000A284C}, ;       WP_switch_a
 ;setcglob {SECT_TEXT  + 000A2860}, ;       WP_switch_b
 ;setcglob {SECT_TEXT  + 000A2884}, ;       WP_byte_switch
-;setcglob {SECT_TEXT  + 000A29E0}, ;       Parse_Command_Line(int)
 ;setcglob {SECT_TEXT  + 000A2A80}, ;       PCL_switch
 ;setcglob {SECT_TEXT  + 000A2AA0}, ;       PCL_byte_switch
 ;setcglob {SECT_TEXT  + 000A2AC0}, ;       EnumFunc
@@ -406,7 +405,6 @@ setcglob 0x004b07a0, atoi
 ;setcglob {SECT_TEXT  + 000AF6F0}, ;       operator delete(void *)
 ;setcglob {SECT_TEXT  + 000AF700}, ;       _atol
 ;setcglob {SECT_TEXT  + 000AF7B0}, ;       _strncpy
-;setcglob {SECT_TEXT  + 000AF8B0}, ;       _strtok
 ;setcglob {SECT_TEXT  + 000AF990}, ;       _JumpToContinuation(void *,EHRegistrationNode *)
 ;setcglob {SECT_TEXT  + 000AF9E0}, ;       _UnwindNestedFrames(EHRegistrationNode *,EHExceptionRecord *)
 ;setcglob {SECT_TEXT  + 000AFA0C}, ;       $ReturnPoint$16567
@@ -851,7 +849,6 @@ setcglob 0x004b07a0, atoi
 ;setcglob {SECT_DATA  + 002BEE0C}, ;       bool StorePassword
 ;setcglob {SECT_DATA  + 002BEE1C}, ;       bool RestartGame
 ;setcglob {SECT_DATA  + 002BEE20}, ;       bool CancelConnect
-;setcglob {SECT_DATA  + 002BEE30}, ;       bool ForceNoCD
 ;setcglob {SECT_DATA  + 002BEE34}, ;       int GameType
 ;setcglob {SECT_DATA  + 002BEE48}, ;       bool CallerIDOn
 ;setcglob {SECT_DATA  + 002BF4C4}, ;       __bNetworkGame?
