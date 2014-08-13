@@ -36,10 +36,10 @@ PURE_OBJS   = sym.o res/res.o
 
 default: $(GAME).exe
 
-$(GAME).exe: .dump-.patch-.import-.vsize-.$(GAME).exe
+$(GAME).exe: .dump-.patch-.import-.$(GAME).exe
 	$(CP) $< $@
 
-pure-$(GAME).exe: .dump-.import-.vsize-.pure-$(GAME).exe
+pure-$(GAME).exe: .dump-.import-.pure-$(GAME).exe
 	$(CP) $< $@
 
 include $(COMMON_DIR)/generic.mk
