@@ -2,6 +2,8 @@
 
 REV         ?= UNKNOWN_VERSION
 
+COMMON_DIR  ?= common
+
 CP          ?= copy
 RM          ?= rm -f
 CC          ?= gcc
@@ -31,7 +33,7 @@ LD_COMMON   ?= $(CFLAGS) \
 		-Wl,--allow-multiple-definition \
 		-Wl,--subsystem=windows
 
-LDFLAGS     ?= $(LD_COMMON) -Wl,--file-alignment=$(ALIGNMENT)
+LDFLAGS     ?= $(LD_COMMON) -Wl,--file-alignment=$(ALIGNMENT) -nostdlib
 DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 
 .$(GAME).exe: $(LSCRIPT) $(INBIN) $(OBJS)
@@ -60,6 +62,7 @@ DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 	$(CP) $< $@
 	$(PETOOL) dump $@
 
+
 %.o: %.cpp
 	$(CXX)  $(CXXFLAGS) -c -o $@ $<
 
@@ -72,6 +75,7 @@ DLL_LDFLAGS ?= $(LD_COMMON) -s -shared -Wl,--strip-all -Wl,--exclude-all-symbols
 %.o: %.rc
 	$(WINDRES) $(WFLAGS) $< $@
 
+
 .PHONY: clean
 clean:
-	$(RM) *dune2000.exe *dune2000.dll $(OBJS) $(DLL_OBJS)
+	$(RM) *$(GAME).exe *$(GAME).dll $(OBJS) $(DLL_OBJS)
