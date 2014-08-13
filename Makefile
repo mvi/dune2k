@@ -32,7 +32,7 @@ OBJS        = callsites.o \
 		\
 		sym.o
 
-PURE_OBJS   = sym.o res/res.o
+PURE_OBJS   = sym.o res/dune2000.o
 
 default: $(GAME).exe
 
