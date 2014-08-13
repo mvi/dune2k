@@ -48,7 +48,6 @@ extern int GameType;
 extern char NetworkGame;
 
 //Multiplayer settings
-extern bool FirstTimePlay;
 extern unsigned char NetUnitCount;
 extern unsigned char NetTechLevel;
 extern unsigned short NetStartingCredits;
@@ -58,16 +57,25 @@ extern unsigned char NetWorms;
 extern char NetPlayerName[];
 extern unsigned char NetPlayerSide;
 extern unsigned char NetPlayerColor;
+extern unsigned char NetPlayerHandicap;
 extern char NetIPAddress[];
 extern char NetModemPhone[];
 extern unsigned char NetSerialComPort;
 
 //Game settings
+extern bool FirstTimePlay;
 extern unsigned int ScrollRate;
 extern unsigned short GameSpeed;
 extern unsigned int GameBitsPerPixel;
 extern unsigned int SFXVolume;
 extern unsigned int MusicVolume;
+
+extern bool MoviesEnabled;
+extern bool SoundsEnabled;
+extern bool SkipIntro;
+extern bool VideoBackBuffer;
+extern bool DebugMode;
+extern bool ForceNoCD;
 
 //WOL
 extern bool AllowFindUser;
@@ -95,3 +103,4 @@ int GenerateUnitAttackUnitOrder(int,int,int);
 
 void LoadDune2000Cfg();
 void SaveDune2000Cfg();
+

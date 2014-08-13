@@ -31,15 +31,15 @@ void HandleWindowMessage(int message, int wParam)
 			HandleKeyEvent(VK_MBUTTON, false);
 			break;
 		case WM_XBUTTONDOWN:
-			if ((lo & MK_XBUTTON1) != 0)
+			if (lo & MK_XBUTTON1)
 				HandleKeyEvent(VK_XBUTTON1, true);
-			if ((lo & MK_XBUTTON2) != 0)
+			if (lo & MK_XBUTTON2)
 				HandleKeyEvent(VK_XBUTTON2, true);
 			break;
 		case WM_XBUTTONUP:
-			if ((lo & MK_XBUTTON1) == 0)
+			if (!(lo & MK_XBUTTON1))
 				HandleKeyEvent(VK_XBUTTON1, false);
-			if ((lo & MK_XBUTTON2) == 0)
+			if (!(lo & MK_XBUTTON2))
 				HandleKeyEvent(VK_XBUTTON2, false);
 			break;
 	}

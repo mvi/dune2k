@@ -4,9 +4,6 @@
 
 %assign WOLGameVersion 3
 
-;Default handicap setting for multiplayer
-@SET 0x00470834, db 0x00
-
 @REPLACE 0x0045A983, 0x0045A9C1, LAN_Settings
     mov  dword [_InitialConnectTimeOut],15000
     mov  dword [_ReconnectTimeOutToPlayer],6

@@ -27,18 +27,6 @@ setcglob 0x4E3B1C, UnknownNetVar3
 setcglob 0x4E3AF0, UnknownNetVar4
 setcglob 0x4E3AF4, UnknownNetVar5
 
-;Others
-setcglob 0x004EB048, MousePositionX
-setcglob 0x004EB04C, MousePositionY
-
-setcglob 0x00798544, MySideID
-setcglob 0x006B8274, Win
-setcglob 0x006B8278, Lose
-setcglob 0x004E8BF0, DifficultyLevel
-setcglob 0x00797E34, GameType
-
-setcglob 0x007984C4, NetworkGame
-
 ;Multiplayer settings
 setcglob 0x004E7ACC, FirstTimePlay
 setcglob 0x004E3B00, NetUnitCount
@@ -50,6 +38,7 @@ setcglob 0x006B9838, NetWorms
 setcglob 0x006B93F8, NetPlayerName
 setcglob 0x006B9840, NetPlayerSide
 setcglob 0x006B9844, NetPlayerColor
+setcglob 0x006B9848, NetPlayerHandicap
 setcglob 0x007975D0, NetIPAddress
 setcglob 0x00797960, NetModemPhone
 setcglob 0x004E8BF4, NetSerialComPort
@@ -60,6 +49,9 @@ setcglob 0x004E3B18, GameSpeed
 setcglob 0x004EB01C, GameBitsPerPixel
 setcglob 0x004E5FC4, SFXVolume
 setcglob 0x004E5FC8, MusicVolume
+setcglob 0x005178C4, DebugMode
+setcglob 0x004eb008, FullScreen
+setcglob 0x00797e30, ForceNoCD
 
 ;WOL
 setcglob 0x004DB9D4, AllowFindUser
@@ -68,15 +60,32 @@ setcglob 0x004F3D00, LanguageFilter
 setcglob 0x004F3D04, ShowAllGames
 setcglob 0x004F3CF0, Microphone
 
+;Params
+setcglob 0x004EB004, MoviesEnabled ; -M = false
+setcglob 0x004EB00C, SoundsEnabled ; -S = false
+setcglob 0x005178A4, SkipIntro ; -N = true
+setcglob 0x007984B4, Force8Bit ; -8 = true
+setcglob 0x007984B8, Force16Bit ; -6 = true
+setcglob 0x004EB010, VideoBackBuffer ; -F = false
+setcglob 0x007984E4, Force480Height ; -G = true
+
 ;others
+setcglob 0x004EB048, MousePositionX
+setcglob 0x004EB04C, MousePositionY
+
+setcglob 0x00798544, MySideID
+setcglob 0x006B8274, Win
+setcglob 0x006B8278, Lose
+setcglob 0x004E8BF0, DifficultyLevel
+setcglob 0x00797E34, GameType
+
+setcglob 0x007984C4, NetworkGame
+
 setcglob 0x004E8BEC, MaxPlayers
 setcglob 0x004F3D3C, TournamentGame
 setcglob 0x004F3D40, PrivateGame
-setcglob 0x006B9848, NetPlayerHandicap
 
 setcglob 0x007BCACC, AtreidesMoney
-
-setcglob 0x005178C4, DebugMode
 
 setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
@@ -93,6 +102,8 @@ setcglob 0x00455510, HandleGameLoopEvents
 
 setcglob 0x00478C20, LoadDune2000Cfg
 setcglob 0x00478FA0, SaveDune2000Cfg
+
+setcglob 0x00482690, Get_CD
 
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
@@ -116,8 +127,8 @@ setcglob 0x004b0ee0, free
 setcglob 0x004b07a0, atoi
 
 
-
 ;setcglob <mystery-addr>, WinMain@16
+
 
 
 ;; ### From Hyper, uncategorized ###

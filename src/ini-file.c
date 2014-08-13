@@ -37,16 +37,24 @@ void IniSetInt(LPCTSTR section, LPCTSTR key, int value, LPCTSTR fileName)
 void IniGetString(LPCTSTR section, LPCTSTR key, LPCTSTR defaultValue, LPCTSTR fileName, char *out, int length)
 {
 	if (!hModule) hModule = LoadLibraryA("Kernel32.dll");
-	if (!hModule) strcpy(out, defaultValue);
+	if (!hModule)
+	{
+		strcpy(out, defaultValue);
+		return;
+	}
 	if (!readIni) readIni = (GetPrivateProfileStringA_)GetProcAddress(hModule,"GetPrivateProfileStringA");
-	if (!readIni) strcpy(out, defaultValue);
+	if (!readIni)
+	{
+		strcpy(out, defaultValue);
+		return;
+	}
 	readIni(section, key, defaultValue, out, length, fileName);
 }
 
 bool IniGetBool(LPCTSTR section, LPCTSTR key, bool defaultValue, LPCTSTR fileName)
 {
-	char value[5];
-	IniGetString(section, key, defaultValue ? "Yes" : "No", fileName, value, 5);
+	char value[4];
+	IniGetString(section, key, defaultValue ? "Yes" : "No", fileName, value, 4);
 	
 	char *p;
 	for (p = value; *p != '\0'; ++p) *p = tolower(*p);

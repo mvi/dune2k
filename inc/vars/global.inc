@@ -52,7 +52,8 @@ extern _NetCrates
 extern _NetWorms
 extern _NetPlayerName
 extern _NetPlayerSide
-extern _NetPlayerColour
+extern _NetPlayerColor
+extern _NetPlayerHandicap
 extern _NetIPAddress
 extern _NetModemPhone
 extern _NetSerialComPort
@@ -63,6 +64,13 @@ extern _GameSpeed
 extern _GameBitsPerPixel
 extern _SFXVolume
 extern _MusicVolume
+
+extern _MoviesEnabled
+extern _SoundsEnabled
+extern _SkipIntro
+extern _VideoBackBuffer
+extern _DebugMode
+extern _ForceNoCD
 
 ;WOL
 extern _AllowFindUser

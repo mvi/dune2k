@@ -10,7 +10,6 @@ LPCTSTR dune2000Ini = ".\\dune2000.ini";
 
 void SaveDune2000Ini()
 {
-	D2kIniSetBool("MultiPlayer", "FirstTimePlay", FirstTimePlay);
 	D2kIniSetInt("MultiPlayer", "UnitCount", NetUnitCount);
 	D2kIniSetInt("MultiPlayer", "TechLevel", NetTechLevel);
 	D2kIniSetInt("MultiPlayer", "StartingCredits", NetStartingCredits);
@@ -20,15 +19,24 @@ void SaveDune2000Ini()
 	D2kIniSetString("MultiPlayer", "PlayerName", NetPlayerName);
 	D2kIniSetInt("MultiPlayer", "PlayerSide", NetPlayerSide);
 	D2kIniSetInt("MultiPlayer", "PlayerColor", NetPlayerColor);
+	D2kIniSetInt("MultiPlayer", "PlayerHandicap", NetPlayerHandicap);
+	
 	D2kIniSetString("MultiPlayer", "IPAddress", NetIPAddress);
 	D2kIniSetString("MultiPlayer", "ModemPhone", NetModemPhone);
 	D2kIniSetInt("MultiPlayer", "SerialComPort", NetSerialComPort);
 
+	D2kIniSetBool("Options", "FirstTimePlay", FirstTimePlay);
 	D2kIniSetInt("Options", "ScrollRate", ScrollRate);
 	D2kIniSetInt("Options", "GameSpeed", GameSpeed);
 	D2kIniSetInt("Options", "GameBitsPerPixel", GameBitsPerPixel);
 	D2kIniSetInt("Options", "SFXVolume", SFXVolume);
 	D2kIniSetInt("Options", "MusicVolume", MusicVolume);
+	D2kIniSetBool("Options", "MoviesEnabled", MoviesEnabled);
+	D2kIniSetBool("Options", "SoundsEnabled", SoundsEnabled);
+	D2kIniSetBool("Options", "SkipIntro", SkipIntro);
+	D2kIniSetBool("Options", "VideoBackBuffer", VideoBackBuffer);
+	D2kIniSetBool("Options", "DebugMode", DebugMode);
+	D2kIniSetBool("Options", "ForceNoCD", ForceNoCD);
 
 	D2kIniSetBool("WOL", "AllowFindUser", AllowFindUser);
 	D2kIniSetBool("WOL", "AllowPageUser", AllowPageUser);
@@ -83,7 +91,6 @@ void LoadDune2000Ini()
 {
 	LoadDune2000Cfg();
 	
-	FirstTimePlay = D2kIniGetBool("MultiPlayer", "FirstTimePlay", true);
 	NetUnitCount = D2kIniGetInt("MultiPlayer", "UnitCount", 10);
 	NetTechLevel = D2kIniGetInt("MultiPlayer", "TechLevel", 7);
 	NetStartingCredits = D2kIniGetInt("MultiPlayer", "StartingCredits", 7000);
@@ -93,15 +100,22 @@ void LoadDune2000Ini()
 	D2kIniGetString("MultiPlayer", "PlayerName", "NONAME", NetPlayerName, 100);
 	NetPlayerSide = D2kIniGetInt("MultiPlayer", "PlayerSide", 0);
 	NetPlayerColor = D2kIniGetInt("MultiPlayer", "PlayerColor", 0);
+	NetPlayerHandicap = D2kIniGetInt("MultiPlayer", "PlayerHandicap", 0);
 	D2kIniGetString("MultiPlayer", "IPAddress", "", NetIPAddress, 100);
 	D2kIniGetString("MultiPlayer", "ModemPhone", "", NetModemPhone, 100);
 	NetSerialComPort = D2kIniGetInt("MultiPlayer", "SerialComPort", 1);
 
+	FirstTimePlay = D2kIniGetBool("Options", "FirstTimePlay", true);
 	ScrollRate = D2kIniGetInt("Options", "ScrollRate", 20);
 	GameSpeed = D2kIniGetInt("Options", "GameSpeed", 75);
 	GameBitsPerPixel = D2kIniGetInt("Options", "GameBitsPerPixel", 16);
 	SFXVolume = D2kIniGetInt("Options", "SFXVolume", 100);
 	MusicVolume = D2kIniGetInt("Options", "MusicVolume", 100);
+	MoviesEnabled = D2kIniGetBool("Options", "MoviesEnabled", true);
+	SoundsEnabled = D2kIniGetBool("Options", "SoundsEnabled", true);
+	SkipIntro = D2kIniGetBool("Options", "SkipIntro", false);
+	VideoBackBuffer = D2kIniGetBool("Options", "VideoBackBuffer", true);
+	DebugMode = D2kIniGetBool("Options", "DebugMode", false);
 
 	AllowFindUser = D2kIniGetBool("WOL", "AllowFindUser", true);
 	AllowPageUser = D2kIniGetBool("WOL", "AllowPageUser", true);
