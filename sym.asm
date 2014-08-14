@@ -69,6 +69,18 @@ setcglob 0x007984B8, Force16Bit ; -6 = true
 setcglob 0x004EB010, VideoBackBuffer ; -F = false
 setcglob 0x007984E4, Force480Height ; -G = true
 
+;Screen display stuff
+setcglob 0x004eb020, ScreenWidth
+setcglob 0x004eb024, ScreenHeight
+setcglob 0x004EB028, ScreenWidth2
+setcglob 0x004EB02C, ScreenHeight2
+setcglob 0x004E4214, ScreenUnk1
+setcglob 0x004E420C, ScreenUnk2
+setcglob 0x004E4204, ScreenUnk3
+setcglob 0x004E41FC, ScreenUnk4
+setcglob 0x004E41EC, ScreenUnk5
+setcglob 0x004E41E4, ScreenUnk6
+
 ;others
 setcglob 0x004EB048, MousePositionX
 setcglob 0x004EB04C, MousePositionY
@@ -106,6 +118,7 @@ setcglob 0x00478FA0, SaveDune2000Cfg
 setcglob 0x00482690, Get_CD ;       Get_CD::Get_CD(void)
 setcglob 0x004A39E0, Parse_Command_Line
 
+
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
 setcglob 0x008CF584, _imp__GetProcAddress
@@ -128,8 +141,10 @@ setcglob 0x004b0ee0, free
 setcglob 0x004b07a0, atoi
 setcglob 0x004b08b0, strtok
 
+setcglob 0x004B1890, cinit
 
 ;setcglob <mystery-addr>, WinMain@16
+
 
 
 ;; ### From Hyper, uncategorized ###
@@ -442,7 +457,6 @@ setcglob 0x004b08b0, strtok
 ;setcglob {SECT_TEXT  + 000B0810}, ;       _rand
 ;setcglob {SECT_TEXT  + 000B0840}, ;       __ftol
 ;setcglob {SECT_TEXT  + 000B0870}, ;       _abort
-;setcglob {SECT_TEXT  + 000B0890}, ;       __cinit
 ;setcglob {SECT_TEXT  + 000B08C0}, ;       _exit
 ;setcglob {SECT_TEXT  + 000B08E0}, ;       __exit
 ;setcglob {SECT_TEXT  + 000B0900}, ;       _doexit
@@ -741,10 +755,6 @@ setcglob 0x004b08b0, strtok
 ;setcglob {SECT_DATA  + 00005610}, ;       int MissionNumber
 ;setcglob {SECT_DATA  + 0000568C}, ;       Source
 ;setcglob {SECT_DATA  + 00006B08}, ;       int GameState
-;setcglob {SECT_DATA  + 0000AB00}, ;       int NetUnitCount
-;setcglob {SECT_DATA  + 0000AB04}, ;       int NetTechLevel
-;setcglob {SECT_DATA  + 0000AB08}, ;       int NetStartingCredits
-;setcglob {SECT_DATA  + 0000AB0C}, ;       int NetAIPlayers
 ;setcglob {SECT_DATA  + 0000AB10}, ;       int NetNetworkType
 ;setcglob {SECT_DATA  + 0000AB14}, ;       int MyCurrentFrameRate
 ;setcglob {SECT_DATA  + 0000AB18}, ;       int LimitedModelPct
@@ -752,9 +762,6 @@ setcglob 0x004b08b0, strtok
 ;setcglob {SECT_DATA  + 0000B1E4}, ;       Offset
 ;setcglob {SECT_DATA  + 0000BBF8}, ;       SubStr
 ;setcglob {SECT_DATA  + 0000CFBC}, ;       int CurrentCDTrack
-;setcglob {SECT_DATA  + 0000CFC4}, ;       int SFXVolume
-;setcglob {SECT_DATA  + 0000CFC8}, ;       int CDVolume
-;setcglob {SECT_DATA  + 0000EACC}, ;       bool FirstTimePlay
 ;setcglob {SECT_DATA  + 0000EAD0}, ;       bool UseCampaignSelection
 ;setcglob {SECT_DATA  + 0000EAD8}, ;       long *MissionNumber
 ;setcglob {SECT_DATA  + 0000EADC}, ;       int *MissionNumber
@@ -765,9 +772,6 @@ setcglob 0x004b08b0, strtok
 ;setcglob {SECT_DATA  + 0000FBF4}, ;       int NetSerialComPort
 ;setcglob {SECT_DATA  + 00010444}, ;       Data
 ;setcglob {SECT_DATA  + 00012004}, ;       bool MoviesAllowed
-;setcglob {SECT_DATA  + 00012008}, ;       bool FullScreen
-;setcglob {SECT_DATA  + 0001200C}, ;       bool AudioAllowed
-;setcglob {SECT_DATA  + 00012010}, ;       bool VideoBackBuffer
 ;setcglob {SECT_DATA  + 00012018}, ;       int BitsPerPixel
 ;setcglob {SECT_DATA  + 0001201C}, ;       int GameBitsPerPixel
 ;setcglob {SECT_DATA  + 00012020}, ;       int ScreenWidth

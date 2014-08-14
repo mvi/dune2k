@@ -71,6 +71,8 @@ extern _SkipIntro
 extern _VideoBackBuffer
 extern _DebugMode
 extern _ForceNoCD
+extern _FullScreen
+extern _Force480Height
 
 ;WOL
 extern _AllowFindUser
@@ -79,6 +81,20 @@ extern _LanguageFilter
 extern _ShowAllGames
 extern _Microphone
 
+;Screen display stuff
+extern _ScreenWidth
+extern _ScreenHeight
+extern _ScreenWidth2
+extern _ScreenHeight2
+extern _ScreenUnk1
+extern _ScreenUnk2
+extern _ScreenUnk3
+extern _ScreenUnk4
+extern _ScreenUnk5
+extern _ScreenUnk6
+
+extern _HighResPatchEnabled
+
 ;Others
 extern _MaxPlayers
 extern _TournamentGame
@@ -86,8 +102,6 @@ extern _PrivateGame
 extern _NetPlayerHandicap
 
 extern _AtreidesMoney
-
-extern _DebugMode
 
 
 ; ### Functions ###
@@ -98,3 +112,5 @@ extern _GenerateUnitAttackUnitOrder
 
 extern _LoadDune2000Cfg
 extern _SaveDune2000Cfg
+
+extern _cinit

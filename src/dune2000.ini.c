@@ -20,7 +20,6 @@ void SaveDune2000Ini()
 	D2kIniSetInt("MultiPlayer", "PlayerSide", NetPlayerSide);
 	D2kIniSetInt("MultiPlayer", "PlayerColor", NetPlayerColor);
 	D2kIniSetInt("MultiPlayer", "PlayerHandicap", NetPlayerHandicap);
-	
 	D2kIniSetString("MultiPlayer", "IPAddress", NetIPAddress);
 	D2kIniSetString("MultiPlayer", "ModemPhone", NetModemPhone);
 	D2kIniSetInt("MultiPlayer", "SerialComPort", NetSerialComPort);
@@ -37,6 +36,8 @@ void SaveDune2000Ini()
 	D2kIniSetBool("Options", "VideoBackBuffer", VideoBackBuffer);
 	D2kIniSetBool("Options", "DebugMode", DebugMode);
 	D2kIniSetBool("Options", "ForceNoCD", ForceNoCD);
+	D2kIniSetInt("Options", "ScreenWidth", ScreenWidth2);
+	D2kIniSetInt("Options", "ScreenHeight", ScreenHeight2);
 
 	D2kIniSetBool("WOL", "AllowFindUser", AllowFindUser);
 	D2kIniSetBool("WOL", "AllowPageUser", AllowPageUser);

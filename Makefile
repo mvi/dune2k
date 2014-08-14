@@ -17,6 +17,8 @@ INCLUDES    = -Iinc/ -I$(COMMON_DIR)/inc/
 LIBS        =
 OBJS        = callsites.o \
 		\
+		src/high-res.o \
+		src/high-res-func.o \
 		src/command-line-parameters.o \
 		src/stdio.o \
 		src/hotkeys.o \

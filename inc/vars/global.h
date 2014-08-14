@@ -86,6 +86,20 @@ extern bool LanguageFilter;
 extern bool ShowAllGames;
 extern bool Microphone;
 
+//Screen display stuff
+extern int ScreenWidth;
+extern int ScreenHeight;
+extern int ScreenWidth2;
+extern int ScreenHeight2;
+extern unsigned short ScreenUnk1;
+extern unsigned short ScreenUnk2;
+extern unsigned short ScreenUnk3;
+extern unsigned short ScreenUnk4;
+extern unsigned char ScreenUnk5;
+extern unsigned short ScreenUnk6;
+
+extern bool HighResPatchEnabled;
+
 //Others
 extern unsigned char MaxPlayers;
 extern bool TournamentGame;
@@ -93,8 +107,6 @@ extern bool PrivateGame;
 extern unsigned char NetPlayerHandicap;
 
 extern unsigned int AtreidesMoney;
-
-extern bool DebugMode;
 
 
 // ### Functions ###
@@ -105,4 +117,6 @@ int GenerateUnitAttackUnitOrder(int,int,int);
 
 void LoadDune2000Cfg();
 void SaveDune2000Cfg();
+
+void cinit();
 
