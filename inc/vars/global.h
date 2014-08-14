@@ -112,8 +112,15 @@ extern unsigned int AtreidesMoney;
 // ### Functions ###
 unsigned char __fastcall TextOnScreen(int a1, int a2, int a3, int a4, int a5, int a6, unsigned char a7, int a8, int a9);
 
-int GenerateUnitMoveOrder(int,int,int);
-int GenerateUnitAttackUnitOrder(int,int,int);
+int GenerateUnitMoveOrder(int sideIndex, int targetX, int targetY);
+int GenerateUnitAttackUnitOrder(int sideIndex, int targetX, int targetY);
+
+int __cdecl PlayUnitResponse(bool isMoveCommand); // Plays the selected unit "yes sir" sound, when bool is false it acts as a new selection when true it acts as a move command
+
+int __cdecl ModelBuildBuildingPick(int sideIndex, int buildingIndex);
+int __cdecl ModelBuildBuildingCancel(int sideIndex, int unitIndex);
+int __cdecl ModelBuildUnitPick(int sideIndex, int unitIndex);
+int __cdecl ModelBuildUnitCancel(int sideIndex, int unitIndex);
 
 void LoadDune2000Cfg();
 void SaveDune2000Cfg();

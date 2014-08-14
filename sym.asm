@@ -110,7 +110,9 @@ setcglob 0x0042DC00, TextOnScreen
 setcglob 0x00459450, GenerateUnitMoveOrder
 setcglob 0x004596F0, GenerateUnitAttackUnitOrder
 setcglob 0x00455FC0, ModelBuildBuildingPick
-setcglob 0x00455510, HandleGameLoopEvents
+setcglob 0x004560F0, ModelBuildBuildingCancel
+setcglob 0x00455510, ModelBuildUnitPick
+setcglob 0x00455750, ModelBuildUnitCancelled
 
 setcglob 0x00478C20, LoadDune2000Cfg
 setcglob 0x00478FA0, SaveDune2000Cfg
