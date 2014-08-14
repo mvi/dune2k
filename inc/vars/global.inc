@@ -84,8 +84,8 @@ extern _Microphone
 ;Screen display stuff
 extern _ScreenWidth
 extern _ScreenHeight
-extern _ScreenWidth2
-extern _ScreenHeight2
+extern _GameWidth
+extern _GameHeight
 extern _ScreenUnk1
 extern _ScreenUnk2
 extern _ScreenUnk3

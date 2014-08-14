@@ -72,8 +72,8 @@ setcglob 0x007984E4, Force480Height ; -G = true
 ;Screen display stuff
 setcglob 0x004eb020, ScreenWidth
 setcglob 0x004eb024, ScreenHeight
-setcglob 0x004EB028, ScreenWidth2
-setcglob 0x004EB02C, ScreenHeight2
+setcglob 0x004EB028, GameWidth
+setcglob 0x004EB02C, GameHeight
 setcglob 0x004E4214, ScreenUnk1
 setcglob 0x004E420C, ScreenUnk2
 setcglob 0x004E4204, ScreenUnk3

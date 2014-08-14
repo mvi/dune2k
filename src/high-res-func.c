@@ -8,20 +8,20 @@ bool HighResPatchEnabled = false;
 
 void LoadVideoSettings()
 {
-	ScreenWidth2 = D2kIniGetInt("Options", "ScreenWidth", 640);
-	ScreenHeight2 = D2kIniGetInt("Options", "ScreenHeight", 400);
+	GameWidth = D2kIniGetInt("Options", "GameWidth", 640);
+	GameHeight = D2kIniGetInt("Options", "GameHeight", 400);
 	
-	if (ScreenWidth2 != 640 || ScreenHeight2 != 400)
+	if (GameWidth != 640 || GameHeight != 400)
 	{
 		HighResPatchEnabled = true;
-		ScreenWidth = ScreenWidth2;
-		ScreenHeight = ScreenHeight2;
-		ScreenUnk1 = 390 + ScreenWidth - 640;
-		ScreenUnk2 = 485 + ScreenWidth - 640;
-		ScreenUnk3 = 564 + ScreenWidth - 640;
-		ScreenUnk4 = 501 + ScreenWidth - 640;
+		ScreenWidth = GameWidth;
+		ScreenHeight = GameHeight;
+		ScreenUnk1 = 390 + GameWidth - 640;
+		ScreenUnk2 = 485 + GameWidth - 640;
+		ScreenUnk3 = 564 + GameWidth - 640;
+		ScreenUnk4 = 501 + GameWidth - 640;
 		ScreenUnk5 = 8; 		// <- ?? 000E29EC 04  08  0B  0D (4 8 11 13)
-		ScreenUnk6 = 497 + ScreenWidth - 640; 
+		ScreenUnk6 = 497 + GameWidth - 640; 
 	}
 	cinit();
 }

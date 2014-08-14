@@ -89,8 +89,8 @@ extern bool Microphone;
 //Screen display stuff
 extern int ScreenWidth;
 extern int ScreenHeight;
-extern int ScreenWidth2;
-extern int ScreenHeight2;
+extern int GameWidth;
+extern int GameHeight;
 extern unsigned short ScreenUnk1;
 extern unsigned short ScreenUnk2;
 extern unsigned short ScreenUnk3;

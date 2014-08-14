@@ -36,8 +36,8 @@ void SaveDune2000Ini()
 	D2kIniSetBool("Options", "VideoBackBuffer", VideoBackBuffer);
 	D2kIniSetBool("Options", "DebugMode", DebugMode);
 	D2kIniSetBool("Options", "ForceNoCD", ForceNoCD);
-	D2kIniSetInt("Options", "ScreenWidth", ScreenWidth2);
-	D2kIniSetInt("Options", "ScreenHeight", ScreenHeight2);
+	D2kIniSetInt("Options", "GameWidth", GameWidth);
+	D2kIniSetInt("Options", "GameHeight", GameHeight);
 
 	D2kIniSetBool("WOL", "AllowFindUser", AllowFindUser);
 	D2kIniSetBool("WOL", "AllowPageUser", AllowPageUser);

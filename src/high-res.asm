@@ -2,17 +2,8 @@
 %include "macros/hack.inc"
 %include "vars/global.inc"
 
-@LJMP 0x0044423A, patch1
-@LJMP 0x004442F7, patch2
-@LJMP 0x00444D79, patch3
-@CLEAR 0x0044BB50, 0x90, 0x0044BB58
-@LJMP 0x0044BB50, patch4
-@LJMP 0x0044BE0B, patch5
-@CLEAR 0x004A3E9D, 0x90, 0x004A3EA4
-@LJMP 0x004A3E9D, patch6
 
-
-patch1:
+@HACK 0x0044423A, patch1
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
 	push 0x004DFDD4
@@ -25,9 +16,10 @@ patch1:
 	add esp,0x0CC
 	retn
 	jmp 0x0044424C
+@ENDHACK
 	
 
-patch2:
+@HACK 0x004442F7, patch2
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
 	push 0x004DFDD4
@@ -40,9 +32,10 @@ patch2:
 	add esp,0x0CC
 	retn
 	jmp 0x00444309
-	
-	
-patch3:
+@ENDHACK
+
+
+@HACK 0x00444D79, patch3
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
 	mov eax,dword[0x4E4208]
@@ -71,9 +64,11 @@ patch3:
 	cmp eax,0x3
 	jg 0x00445010
 	jmp 0x00444DBF
-	
-	
-patch4:
+@ENDHACK
+
+
+@CLEAR 0x0044BB50, 0x90, 0x0044BB58
+@HACK 0x0044BB50, patch4
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
 	mov eax,ecx
@@ -105,9 +100,10 @@ patch4:
 	xor ebx,ebx
 	inc ebx
 	jmp 0x0044BB96
+@ENDHACK
 
 
-patch5:
+@HACK 0x0044BE0B, patch5
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
 	cmp eax,1
@@ -121,9 +117,11 @@ patch5:
 	cmp ecx,0x3
 	jg 0x0044C10F
 	jmp 0x0044BE19
+@ENDHACK
 
-;align top left
-patch6:
+
+@CLEAR 0x004A3E9D, 0x90, 0x004A3EA4
+@HACK 0x004A3E9D, patch6 ;align top left
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
 	sar eax,1
@@ -133,3 +131,4 @@ patch6:
 	xor eax,eax
 	mov dword[0x7984D8],eax
 	jmp 0x004A3EA4
+@ENDHACK
