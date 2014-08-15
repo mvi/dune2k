@@ -3,6 +3,35 @@
 %include "vars/global.inc"
 
 
+@CLEAR 0x00460FD3, 0x90, 0x00460FD8
+@HACK 0x00460FD3, AdjustGUIxUI_LANG_r
+	cmp byte[_HighResPatchEnabled], 1
+	jnz .out
+	cmp dword[eax], 320
+	jbe .out
+	mov ecx, dword[_HighResAddedWidth]
+	add dword[eax], ecx
+.out:
+	mov ecx, dword[eax]
+	add eax,4
+	jmp 0x00460FD8
+@ENDHACK
+
+
+@HACK 0x00460FDF, AdjustGUIyUI_LANG_r
+	cmp byte[_HighResPatchEnabled], 1
+	jnz .out
+	cmp dword[eax], 200
+	jbe .out
+	mov edx, dword[_HighResAddedHeight]
+	add dword[eax], edx
+.out:
+	mov edx, dword[eax]
+	add eax,4
+	jmp 0x00460FE4
+@ENDHACK
+
+
 @HACK 0x0044423A, patch1
 	cmp byte[_HighResPatchEnabled], 1
 	jz .patch
@@ -46,7 +75,7 @@
 	jle 0x00445010
 	mov ebx,0x2F
 	mov edx,ebx
-	imul edx,edx,0x8 ; <- ??
+	imul edx, dword[_SideBarIconCount]
 	add edx,eax
 	cmp ecx,edx
 	jge 0x0044500B

@@ -91,13 +91,14 @@ extern int ScreenWidth;
 extern int ScreenHeight;
 extern int GameWidth;
 extern int GameHeight;
-extern unsigned short ScreenUnk1;
-extern unsigned short ScreenUnk2;
-extern unsigned short ScreenUnk3;
-extern unsigned short ScreenUnk4;
-extern unsigned char ScreenUnk5;
-extern unsigned short ScreenUnk6;
-
+extern int ScreenUnk1;
+extern int ScreenUnk2;
+extern int ScreenUnk3;
+extern int ScreenUnk4;
+extern int SideBarIconCount;
+extern int ScreenUnk6;
+extern int HighResAddedWidth;
+extern int HighResAddedHeight;
 extern bool HighResPatchEnabled;
 
 //Others

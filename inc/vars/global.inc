@@ -90,9 +90,10 @@ extern _ScreenUnk1
 extern _ScreenUnk2
 extern _ScreenUnk3
 extern _ScreenUnk4
-extern _ScreenUnk5
+extern _SideBarIconCount
 extern _ScreenUnk6
-
+extern _HighResAddedWidth
+extern _HighResAddedHeight
 extern _HighResPatchEnabled
 
 ;Others

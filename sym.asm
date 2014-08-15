@@ -78,7 +78,7 @@ setcglob 0x004E4214, ScreenUnk1
 setcglob 0x004E420C, ScreenUnk2
 setcglob 0x004E4204, ScreenUnk3
 setcglob 0x004E41FC, ScreenUnk4
-setcglob 0x004E41EC, ScreenUnk5
+setcglob 0x004E41EC, SideBarIconCount
 setcglob 0x004E41E4, ScreenUnk6
 
 ;others
