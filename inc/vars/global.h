@@ -35,18 +35,6 @@ extern unsigned int UnknownNetVar3;
 extern unsigned int UnknownNetVar4;
 extern unsigned int UnknownNetVar5;
 
-//Others
-extern int MousePositionX;
-extern int MousePositionY;
-
-extern unsigned char MySideID;
-extern bool Win;
-extern bool Lose;
-extern unsigned char DifficultyLevel;
-extern int GameType;
-
-extern char NetworkGame;
-
 //Multiplayer settings
 extern unsigned char NetUnitCount;
 extern unsigned char NetTechLevel;
@@ -97,6 +85,7 @@ extern int ScreenUnk3;
 extern int ScreenUnk4;
 extern int SideBarIconCount;
 extern int ScreenUnk6;
+
 extern int HighResAddedWidth;
 extern int HighResAddedHeight;
 extern bool HighResPatchEnabled;
@@ -108,6 +97,17 @@ extern bool PrivateGame;
 extern unsigned char NetPlayerHandicap;
 
 extern unsigned int AtreidesMoney;
+
+extern int MousePositionX;
+extern int MousePositionY;
+
+extern unsigned char MySideID;
+extern bool Win;
+extern bool Lose;
+extern unsigned char DifficultyLevel;
+extern int GameType;
+
+extern char NetworkGame;
 
 
 // ### Functions ###

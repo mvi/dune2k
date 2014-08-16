@@ -52,6 +52,13 @@ setcglob 0x004E5FC8, MusicVolume
 setcglob 0x005178C4, DebugMode
 setcglob 0x004eb008, FullScreen
 setcglob 0x00797e30, ForceNoCD
+setcglob 0x004EB004, MoviesEnabled ; -M = false
+setcglob 0x004EB00C, SoundsEnabled ; -S = false
+setcglob 0x005178A4, SkipIntro ; -N = true
+setcglob 0x007984B4, Force8Bit ; -8 = true
+setcglob 0x007984B8, Force16Bit ; -6 = true
+setcglob 0x004EB010, VideoBackBuffer ; -F = false
+setcglob 0x007984E4, Force480Height ; -G = true
 
 ;WOL
 setcglob 0x004DB9D4, AllowFindUser
@@ -60,14 +67,6 @@ setcglob 0x004F3D00, LanguageFilter
 setcglob 0x004F3D04, ShowAllGames
 setcglob 0x004F3CF0, Microphone
 
-;Params
-setcglob 0x004EB004, MoviesEnabled ; -M = false
-setcglob 0x004EB00C, SoundsEnabled ; -S = false
-setcglob 0x005178A4, SkipIntro ; -N = true
-setcglob 0x007984B4, Force8Bit ; -8 = true
-setcglob 0x007984B8, Force16Bit ; -6 = true
-setcglob 0x004EB010, VideoBackBuffer ; -F = false
-setcglob 0x007984E4, Force480Height ; -G = true
 
 ;Screen display stuff
 setcglob 0x004eb020, ScreenWidth

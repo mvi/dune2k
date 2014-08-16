@@ -21,8 +21,8 @@
 
 ;Network settings
 extern _SendRate
-extern _ReconnectTimeOutToPlayer;
-extern _InitialConnectTimeOut;
+extern _ReconnectTimeOutToPlayer
+extern _InitialConnectTimeOut
 
 extern _UnknownNetVar1
 extern _UnknownNetVar2
@@ -31,8 +31,8 @@ extern _UnknownNetVar4
 extern _UnknownNetVar5
 
 ;Others
-extern _MousePositionX;
-extern _MousePositionY;
+extern _MousePositionX
+extern _MousePositionY
 
 extern _MySideID
 extern _Win
@@ -40,7 +40,7 @@ extern _Lose
 extern _DifficultyLevel
 extern _GameType
 
-extern _NetworkGame;
+extern _NetworkGame
 
 ;Multiplayer settings
 extern _NetUnitCount
@@ -92,6 +92,7 @@ extern _ScreenUnk3
 extern _ScreenUnk4
 extern _SideBarIconCount
 extern _ScreenUnk6
+
 extern _HighResAddedWidth
 extern _HighResAddedHeight
 extern _HighResPatchEnabled

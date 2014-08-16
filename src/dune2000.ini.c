@@ -84,6 +84,10 @@ void SaveDune2000Ini()
 	D2kIniSetInt("Hotkeys", "WOLPageReply", WOLPageReply);
 	D2kIniSetInt("Hotkeys", "WOLProposeDraw", WOLProposeDraw);
 	D2kIniSetInt("Hotkeys", "CenterSelectedUnits", CenterSelectedUnits);
+	D2kIniSetInt("Hotkeys", "ScrollLeft", ScrollLeft);
+	D2kIniSetInt("Hotkeys", "ScrollDown", ScrollDown);
+	D2kIniSetInt("Hotkeys", "ScrollRight", ScrollRight);
+	D2kIniSetInt("Hotkeys", "ScrollUp", ScrollUp);
 
 	SaveDune2000Cfg();
 }
@@ -163,6 +167,10 @@ void LoadDune2000Ini()
 	WOLPageReply = D2kIniGetInt("Hotkeys", "WOLPageReply", VK_F8);
 	WOLProposeDraw = D2kIniGetInt("Hotkeys", "WOLProposeDraw", 'D');
 	CenterSelectedUnits = D2kIniGetInt("Hotkeys", "CenterSelectedUnits", VK_HOME);
+	ScrollLeft = D2kIniGetInt("Hotkeys", "ScrollLeft", VK_NUMPAD1);
+	ScrollDown = D2kIniGetInt("Hotkeys", "ScrollDown", VK_NUMPAD2);
+	ScrollRight = D2kIniGetInt("Hotkeys", "ScrollRight", VK_NUMPAD3);
+	ScrollUp = D2kIniGetInt("Hotkeys", "ScrollUp", VK_NUMPAD5);
 }
 
 

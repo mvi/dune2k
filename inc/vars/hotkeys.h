@@ -40,3 +40,7 @@ extern int PublicChat;
 extern int WOLPageReply;
 extern int WOLProposeDraw;
 extern int CenterSelectedUnits;
+extern int ScrollLeft;
+extern int ScrollDown;
+extern int ScrollRight;
+extern int ScrollUp;

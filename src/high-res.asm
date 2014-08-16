@@ -3,6 +3,39 @@
 %include "vars/global.inc"
 
 
+@CLEAR 0x004A3CE5, 0x90, 0x004A3CE8 ; window mode fix, just needed for testing
+
+
+@CLEAR 0x0042CD3C, 0x90, 0x0042CD41
+@HACK 0x0042CD3C, TemporaryHackishSPFix1
+	cmp byte[_HighResPatchEnabled], 1
+	jnz .out
+	cmp dword[ecx+0x0C], 400
+	jbe .out
+	mov dword[ecx+0x0C], 400
+.out:
+	mov al,0x20
+	sub al,bl
+	push esi
+	jmp 0x0042CD41
+@ENDHACK
+
+
+@HACK 0x0042CD5D, TemporaryHackishSPFix2
+	cmp byte[_HighResPatchEnabled], 1
+	jnz .out
+	cmp dword[edx], 640
+	jbe .out
+	mov dword[ecx+0x8], 640
+	mov dword[edx], 640
+.out:
+	mov edi,dword[ecx+0x8]
+	mov eax,esi
+	jmp 0x0042CD62
+@ENDHACK
+
+
+
 @CLEAR 0x00460FD3, 0x90, 0x00460FD8
 @HACK 0x00460FD3, AdjustGUIxUI_LANG_r
 	cmp byte[_HighResPatchEnabled], 1

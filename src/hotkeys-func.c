@@ -41,6 +41,10 @@ int PublicChat = VK_F6;
 int WOLPageReply = VK_F8;
 int WOLProposeDraw = 'D';
 int CenterSelectedUnits = VK_HOME;
+int ScrollLeft = VK_NUMPAD1;
+int ScrollDown = VK_NUMPAD2;
+int ScrollRight = VK_NUMPAD3;
+int ScrollUp = VK_NUMPAD5;
 
 
 void HandleKeyEvent(int key, bool keyIsDown)
@@ -86,6 +90,10 @@ void HandleKeyEvent(int key, bool keyIsDown)
 	else if (key == WOLPageReply) destKey = VK_F8;
 	else if (key == WOLProposeDraw) destKey = 'D';
 	else if (key == CenterSelectedUnits) destKey = VK_HOME;
+	else if (key == ScrollLeft) destKey = VK_NUMPAD1;
+	else if (key == ScrollDown) destKey = VK_NUMPAD2;
+	else if (key == ScrollRight) destKey = VK_NUMPAD3;
+	else if (key == ScrollUp) destKey = VK_NUMPAD5;
 	else destKey = key;
 	
 	switch (destKey)
