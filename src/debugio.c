@@ -1,4 +1,7 @@
-#include <debugio.h>
+#include <stdio.h>
+#include <windows.h>
+
+#include "debugio.h"
 
 int printf(const char *fmt, ...)
 {
