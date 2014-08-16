@@ -17,10 +17,11 @@ INCLUDES    = -Iinc/ -I$(COMMON_DIR)/inc/
 LIBS        =
 OBJS        = callsites.o \
 		\
+        src/build-queue.o \
 		src/high-res.o \
 		src/high-res-func.o \
 		src/command-line-parameters.o \
-		src/stdio.o \
+		src/debugio.o \
 		src/hotkeys.o \
 		src/no-cd.o \
 		src/multiplayer-network-settings.o \
