@@ -79,16 +79,19 @@ extern int ScreenWidth;
 extern int ScreenHeight;
 extern int GameWidth;
 extern int GameHeight;
-extern int ScreenUnk1;
-extern int ScreenUnk2;
-extern int ScreenUnk3;
-extern int ScreenUnk4;
+extern int CreditsUIPosX;
+extern int PowerBarUIPosX;
+extern int SideBarPanelRightUIPosX;
+extern int SideBarPanelLeftUIPosX;
 extern int SideBarIconCount;
-extern int ScreenUnk6;
+extern int MiniMapUIPosX;
 
 extern int HighResAddedWidth;
 extern int HighResAddedHeight;
+extern int HighResUIAlignX;
+extern int HighResUIAlignY;
 extern bool HighResPatchEnabled;
+extern bool HighResCenterUI;
 
 //Others
 extern unsigned char MaxPlayers;
@@ -118,6 +121,9 @@ int GenerateUnitAttackUnitOrder(int,int,int);
 
 void LoadDune2000Cfg();
 void SaveDune2000Cfg();
-
 void cinit();
+void LoadBackgroundGFX(char *fileName, int unk);
 
+//helpers
+bool FileExists(char *fileName);
+bool StartsWith(const char *str, const char *value);

@@ -73,12 +73,25 @@ setcglob 0x004eb020, ScreenWidth
 setcglob 0x004eb024, ScreenHeight
 setcglob 0x004EB028, GameWidth
 setcglob 0x004EB02C, GameHeight
-setcglob 0x004E4214, ScreenUnk1
-setcglob 0x004E420C, ScreenUnk2
-setcglob 0x004E4204, ScreenUnk3
-setcglob 0x004E41FC, ScreenUnk4
+setcglob 0x004E4214, CreditsUIPosX
+setcglob 0x004E420C, PowerBarUIPosX
+setcglob 0x004E4204, SideBarPanelRightUIPosX
+setcglob 0x004E41FC, SideBarPanelLeftUIPosX
 setcglob 0x004E41EC, SideBarIconCount
-setcglob 0x004E41E4, ScreenUnk6
+setcglob 0x004E41E4, MiniMapUIPosX
+
+;DisableDebugFileFormats {
+setcglob 0x004EB014, DisableDebugFileFormats  ; bool
+;Colours.bin -> colours.txt
+;vars.bin -> vars.dat
+;font.bin -> font.map
+;font.fnt -> font.bmp
+;mouse.r16/mouse.r8 -> mouse48.bmp
+;circles.bin -> SCircles.bmp
+;templates.bin -> many different .bmp files...
+; ...and much more...
+; }
+
 
 ;others
 setcglob 0x004EB048, MousePositionX
@@ -114,9 +127,33 @@ setcglob 0x00455510, HandleGameLoopEvents
 setcglob 0x00478C20, LoadDune2000Cfg
 setcglob 0x00478FA0, SaveDune2000Cfg
 
-setcglob 0x00482690, Get_CD ;       Get_CD::Get_CD(void)
+setcglob 0x00482690, Get_CD						 ;       Get_CD::Get_CD(void)
 setcglob 0x004A39E0, Parse_Command_Line
 
+setcglob 0x004B1890, cinit
+
+
+; drawing
+setcglob 0x004308f0, Draw_Line_Clip_TImage		;       Draw_Line_Clip_TImage(int,int,int,int,int,int,int)
+setcglob 0x007984d8, MenuDraw_FromTopPixel		;       int MenuDraw::FromTopPixel
+setcglob 0x004326b0, BlitTImage_4326B0			;       BlitTImage_4326B0
+setcglob 0x0042eae0, Get_Bitmap_Data			;       Get_Bitmap_Data(char,int,int,int)
+setcglob 0x0042ebe0, Load_Bitmap				;       Load_Bitmap(char,int,long,int,int,int,int)
+setcglob 0x0042ef90, __Create_T_Image			;       __Create_T_Image(int width, int height, int, char *FilePath)
+setcglob 0x0042f1d0, Create_TImage_With_Targa	;       Create_TImage_With_Targa(char *FilePath,int,int,int,int,int)
+setcglob 0x0042f430, Create_Surface_With_Bitmap	;       Create_Surface_With_Bitmap(char,char,int,long,int,int,int,char,int,int)
+setcglob 0x00430860, Clear_TImage				;       Clear_TImage(int,int,int)
+setcglob 0x0042e8b0, Get_Palette_From_Bitmap	;       Get_Palette_From_Bitmap(lpFilename,int)
+setcglob 0x0042e660, Load_Targa					;       Load_Targa(char *FilePath, int,int,int,int width, int heigh)
+setcglob 0x0042e810, Load_Targa2				;       Load_Targa(char *FilePath,int,int)
+
+setcglob 0x00491330, LoadBackgroundGFX
+
+; Game Start
+setcglob 0x00460C80, LoadUIIB_r
+setcglob 0x00460EC0, LoadUI_LANG_r
+setcglob 0x00466140, LoadCircles_bin
+setcglob 0x00454E00, LoadTechpos_bin
 
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
@@ -124,6 +161,8 @@ setcglob 0x008CF584, _imp__GetProcAddress
 setcglob 0x008CF598, _imp__GetStdHandle
 setcglob 0x008CF4E4, _imp__WriteFile
 setcglob 0x008CF4F8, _imp__OutputDebugStringA
+setcglob 0x008CF498, _imp__CreatePolygonRgn
+
 
 
 ; stdio
@@ -139,19 +178,22 @@ setcglob 0x004b29e0, strcpy
 setcglob 0x004b0ee0, free
 setcglob 0x004b07a0, atoi
 setcglob 0x004b08b0, strtok
+setcglob 0x004b0fd0, fopen
+setcglob 0x004b0ff0, fclose
+setcglob 0x004b29f0, strcat
+setcglob 0x004b13a0, strncmp
+setcglob 0x004b1b20, memcpy
 
-setcglob 0x004B1890, cinit
 
 ;setcglob <mystery-addr>, WinMain@16
-
-
-
-;; ### From Hyper, uncategorized ###
 
 %assign SECT_TEXT  0x401000
 %assign SECT_RDATA 0x4BE000
 %assign SECT_DATA  0x4D9000
 %assign SECT_IDATA 0x8CF000
+
+;; ### From Hyper, uncategorized ###
+
 
 ;setcglob {SECT_TEXT  + 00000740}, ;       fptc
 ;setcglob {SECT_TEXT  + 00000A20}, ;       __assert
@@ -285,21 +327,10 @@ setcglob 0x004B1890, cinit
 ;setcglob {SECT_TEXT  + 0002D0B0}, ;       GL_DrawStringCentered_42E0B0
 ;setcglob {SECT_TEXT  + 0002D110}, ;       GL_DrawStringCentered_42E110
 ;setcglob {SECT_TEXT  + 0002D450}, ;       GL_42E450
-;setcglob {SECT_TEXT  + 0002D660}, ;       Load_Targa(char,int,int,int,int,int)
-;setcglob {SECT_TEXT  + 0002D810}, ;       Load_Targa(char,int,int)
-;setcglob {SECT_TEXT  + 0002D8B0}, ;       Get_Palette_From_Bitmap(lpFilename,int)
 ;setcglob {SECT_TEXT  + 0002DAA0}, ;       Palette_42EAA0
-;setcglob {SECT_TEXT  + 0002DAE0}, ;       Get_Bitmap_Data(char,int,int,int)
-;setcglob {SECT_TEXT  + 0002DBE0}, ;       Load_Bitmap(char,int,long,int,int,int,int)
-;setcglob {SECT_TEXT  + 0002DF90}, ;       __Create_T_Image
-;setcglob {SECT_TEXT  + 0002E1D0}, ;       Create_TImage_With_Targa(char,int,int,int,int,int)
-;setcglob {SECT_TEXT  + 0002E430}, ;       Create_Surface_With_Bitmap(char,char,int,long,int,int,int,char,int,int)
 ;setcglob {SECT_TEXT  + 0002EAC0}, ;       __Blit_T_Image?
 ;setcglob {SECT_TEXT  + 0002F5F0}, ;       BlitClipTImage_4305F0
 ;setcglob {SECT_TEXT  + 0002F770}, ;       BlitClipTImage_430770
-;setcglob {SECT_TEXT  + 0002F860}, ;       Clear_TImage(int,int,int)
-;setcglob {SECT_TEXT  + 0002F8F0}, ;       Draw_Line_Clip_TImage(int,int,int,int,int,int,int)
-;setcglob {SECT_TEXT  + 000316B0}, ;       BlitTImage_4326B0
 ;setcglob {SECT_TEXT  + 00037D10}, ;       CInterface::Add_Movie(char *,int,int,int,int)
 ;setcglob {SECT_TEXT  + 0003C820}, ;       Create_Score(int)
 ;setcglob {SECT_TEXT  + 000420D0}, ;       Can_Unit_Be_Built(int,int,char)
@@ -443,12 +474,9 @@ setcglob 0x004B1890, cinit
 ;setcglob {SECT_TEXT  + 000AFF30}, ;       __fpmath
 ;setcglob {SECT_TEXT  + 000AFF60}, ;       __cfltcvt_init
 ;setcglob {SECT_TEXT  + 000AFFA0}, ;       __fsopen
-;setcglob {SECT_TEXT  + 000AFFD0}, ;       _fopen
-;setcglob {SECT_TEXT  + 000AFFF0}, ;       _fclose
 ;setcglob {SECT_TEXT  + 000B0070}, ;       _fread
 ;setcglob {SECT_TEXT  + 000B01B0}, ;       _fwrite
 ;setcglob {SECT_TEXT  + 000B0300}, ;       _fseek
-;setcglob {SECT_TEXT  + 000B03A0}, ;       _strncmp
 ;setcglob {SECT_TEXT  + 000B03E0}, ;       __alloca_probe
 ;setcglob {SECT_TEXT  + 000B0410}, ;       _realloc
 ;setcglob {SECT_TEXT  + 000B05B0}, ;       _vsprintf
@@ -463,7 +491,6 @@ setcglob 0x004B1890, cinit
 ;setcglob {SECT_TEXT  + 000B09E0}, ;       _strchr
 ;setcglob {SECT_TEXT  + 000B09E6}, ;       ___from_strstr_to_strchr
 ;setcglob {SECT_TEXT  + 000B0AA0}, ;       _fgets
-;setcglob {SECT_TEXT  + 000B0B20}, ;       _memcpy
 ;setcglob {SECT_TEXT  + 000B0E60}, ;       _clock
 ;setcglob {SECT_TEXT  + 000B0EE0}, ;       _fflush
 ;setcglob {SECT_TEXT  + 000B0F30}, ;       __flush
@@ -856,7 +883,6 @@ setcglob 0x004B1890, cinit
 ;setcglob {SECT_DATA  + 002BEE48}, ;       bool CallerIDOn
 ;setcglob {SECT_DATA  + 002BF4C4}, ;       __bNetworkGame?
 ;setcglob {SECT_DATA  + 002BF4D4}, ;       bool BitsPerPixelChanged
-;setcglob {SECT_DATA  + 002BF4D8}, ;       int MenuDraw::FromTopPixel
 ;setcglob {SECT_DATA  + 002BF4E4}, ;       int Force480
 ;setcglob {SECT_DATA  + 002BF4EC}, ;       hWnd
 ;setcglob {SECT_DATA  + 002BF4F0}, ;       void *ProgramInstance

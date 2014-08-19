@@ -1,7 +1,7 @@
-#include <macros/patch.h>
-#include <vars/global.h>
-#include <vars/hotkeys.h>
-#include <ini.h>
+#include "macros/patch.h"
+#include "vars/global.h"
+#include "vars/hotkeys.h"
+#include "ini.h"
 
 CALL(0x00470BA0, _SaveDune2000Ini);
 CALL(0x00470A68, _LoadDune2000Ini);

@@ -1,8 +1,8 @@
 #define _CRTIMP
 #include <windows.h>
 #include <stdbool.h>
-#include <macros/patch.h>
-#include <vars/global.h>
+#include "macros/patch.h"
+#include "vars/global.h"
 
 CALL(0x004A3BF1, _ParseCommandLine);
 

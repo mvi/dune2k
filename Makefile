@@ -20,7 +20,6 @@ OBJS        = callsites.o \
 		src/high-res.o \
 		src/high-res-func.o \
 		src/command-line-parameters.o \
-		src/stdio.o \
 		src/hotkeys.o \
 		src/no-cd.o \
 		src/multiplayer-network-settings.o \
@@ -29,8 +28,10 @@ OBJS        = callsites.o \
 		src/mouse-wheel-and-buttons.o \
 		src/mouse-wheel-and-buttons-func.o \
 		src/dune2000.ini.o \
-		src/ini-file.o \
 		res/dune2000.o \
+		utils/stdio.o \
+		utils/helpers.o \
+		utils/ini-file.o \
 		\
 		sym.o
 

@@ -27,7 +27,7 @@ void IniSetBool(LPCTSTR section, LPCTSTR key, bool value, LPCTSTR fileName)
 
 void IniSetInt(LPCTSTR section, LPCTSTR key, int value, LPCTSTR fileName)
 {
-	char result[10];
+	char result[11];
 	sprintf(result,"%d",value);
 	IniSetString(section, key, result, fileName);
 }
@@ -53,8 +53,8 @@ void IniGetString(LPCTSTR section, LPCTSTR key, LPCTSTR defaultValue, LPCTSTR fi
 
 bool IniGetBool(LPCTSTR section, LPCTSTR key, bool defaultValue, LPCTSTR fileName)
 {
-	char value[4];
-	IniGetString(section, key, defaultValue ? "Yes" : "No", fileName, value, 4);
+	char value[5];
+	IniGetString(section, key, defaultValue ? "Yes" : "No", fileName, value, 5);
 	
 	char *p;
 	for (p = value; *p != '\0'; ++p) *p = tolower(*p);
@@ -64,10 +64,10 @@ bool IniGetBool(LPCTSTR section, LPCTSTR key, bool defaultValue, LPCTSTR fileNam
 
 int IniGetInt(LPCTSTR section, LPCTSTR key, int defaultValue, LPCTSTR fileName)
 {
-	char dvalue[10];
+	char dvalue[11];
 	sprintf(dvalue,"%d", defaultValue);
-	char value[10];
-	IniGetString(section, key, dvalue, fileName, value, 10);
+	char value[11];
+	IniGetString(section, key, dvalue, fileName, value, 11);
 	
 	return atoi(value);
 }

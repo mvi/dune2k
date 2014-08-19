@@ -1,6 +1,6 @@
-#include <vars/global.h>
-#include <macros/patch.h>
-#include <ini.h>
+#include "vars/global.h"
+#include "macros/patch.h"
+#include "ini.h"
 
 CLEAR(0x004035EE, 0x90, 0x00403601);
 LJMP(0x004035EE, 0x00403601);

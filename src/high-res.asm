@@ -5,35 +5,87 @@
 
 @CLEAR 0x004A3CE5, 0x90, 0x004A3CE8 ; window mode fix, just needed for testing
 
+; ### TODO ###
+;sidebar graphic glitches
+;fix sp menu (center anim)
+;map too small graphic glitches
+;airstrike OOS
 
-@CLEAR 0x0042CD3C, 0x90, 0x0042CD41
-@HACK 0x0042CD3C, TemporaryHackishSPFix1
+extern _UilCenterExceptCheck
+extern _ControlCenterExceptCheck
+
+
+;load custom uibb files
+@SET 0x00460D23, dd _uibb_r16FileName
+@SET 0x00460D37, dd _uibb_r16FileName
+@SET 0x00460E3D, dd _uibb_r16FileName
+@SET 0x00460D3E, dd _uibb_r8FileName
+@SET 0x00460D52, dd _uibb_r8FileName
+@SET 0x00460E4B, dd _uibb_r8FileName
+
+
+@REPLACE 0x0042CD30, 0x0042CD37, TemporaryDisableSPAnim
 	cmp byte[_HighResPatchEnabled], 1
 	jnz .out
-	cmp dword[ecx+0x0C], 400
-	jbe .out
-	mov dword[ecx+0x0C], 400
+	retn
 .out:
-	mov al,0x20
-	sub al,bl
-	push esi
-	jmp 0x0042CD41
-@ENDHACK
+	sub esp, 0x18
+	mov ecx, dword[esp+0x24]
+	jmp 0x0042CD37
+@ENDREPLACE
 
 
-@HACK 0x0042CD5D, TemporaryHackishSPFix2
+@CALLC 0x00436056, 0x0043605E, 1, UilCenterExcept
+	push eax
+    call _UilCenterExceptCheck
+@FINISHCALLC
+	push eax
+	mov ecx, ebp
+	call 0x004390E0
+@ENDCALLC
+
+
+@CALLC 0x00436036, 0x0043603C, 1, UilCenterExcept2
+	push eax
+    call _UilCenterExceptCheck
+@FINISHCALLC
+	push eax
+	call 0x004390E0
+@ENDCALLC
+
+
+@CALLC 0x004391D7, 0x004391DE, 1, ControlCenterOnlyOnce
+	push edx
+    call _ControlCenterExceptCheck
+@FINISHCALLC
+	push 0x0A
+	push 0x004DF3C4
+@ENDCALLC
+
+
+@CLEAR 0x004827D8, 0x90, 0x004827E6
+@HACK 0x004827D8, CenterUI
+	mov ecx, dword[esp+0x1C]
 	cmp byte[_HighResPatchEnabled], 1
 	jnz .out
-	cmp dword[edx], 640
-	jbe .out
-	mov dword[ecx+0x8], 640
-	mov dword[edx], 640
+	cmp byte[_HighResCenterUI], 1
+	jnz .out
+	cmp byte[_HighResUilCenterExcept], 1
+	jz .out
+	cmp byte[_HighResControlCenterExcept], 1
+	jnz .align
+	cmp byte[_HighResControlFirstTimeCenter], 1
+	jnz .out
+.align:
+	add edx, dword[_HighResUIAlignY]
+	add ecx, dword[_HighResUIAlignX]
+	mov byte[_HighResControlFirstTimeCenter], 0
 .out:
-	mov edi,dword[ecx+0x8]
-	mov eax,esi
-	jmp 0x0042CD62
+	mov dword[ebp+0x0C], edx
+	mov edx, dword[esp+0x2C]
+	mov dword[ebp+0x8], ecx
+	jmp 0x004827E6
 @ENDHACK
-
 
 
 @CLEAR 0x00460FD3, 0x90, 0x00460FD8
@@ -77,7 +129,6 @@
 	pop ebx
 	add esp,0x0CC
 	retn
-	jmp 0x0044424C
 @ENDHACK
 	
 
@@ -93,7 +144,6 @@
 	pop ebx
 	add esp,0x0CC
 	retn
-	jmp 0x00444309
 @ENDHACK
 
 
@@ -120,9 +170,9 @@
 	sub eax,ecx
 	cdq
 	div ebx
-	add edi, dword[_ScreenUnk4]
+	add edi, dword[_SideBarPanelLeftUIPosX]
 	lea ecx, [edi]
-	sub edi, dword[_ScreenUnk4]
+	sub edi, dword[_SideBarPanelLeftUIPosX]
 	cmp eax,0x3
 	jg 0x00445010
 	jmp 0x00444DBF

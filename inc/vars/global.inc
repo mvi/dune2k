@@ -86,16 +86,25 @@ extern _ScreenWidth
 extern _ScreenHeight
 extern _GameWidth
 extern _GameHeight
-extern _ScreenUnk1
-extern _ScreenUnk2
-extern _ScreenUnk3
-extern _ScreenUnk4
+extern _CreditsUIPosX
+extern _PowerBarUIPosX
+extern _SideBarPanelRightUIPosX
+extern _SideBarPanelLeftUIPosX
 extern _SideBarIconCount
-extern _ScreenUnk6
+extern _MiniMapUIPosX
 
+;high res patch
 extern _HighResAddedWidth
 extern _HighResAddedHeight
+extern _HighResUIAlignX
+extern _HighResUIAlignY
 extern _HighResPatchEnabled
+extern _HighResCenterUI
+extern _HighResUilCenterExcept
+extern _HighResControlCenterExcept
+extern _HighResControlFirstTimeCenter
+extern _uibb_r16FileName
+extern _uibb_r8FileName
 
 ;Others
 extern _MaxPlayers
@@ -114,5 +123,4 @@ extern _GenerateUnitAttackUnitOrder
 
 extern _LoadDune2000Cfg
 extern _SaveDune2000Cfg
-
 extern _cinit
