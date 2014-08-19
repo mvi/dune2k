@@ -44,7 +44,7 @@ void LoadVideoSettings()
 		SideBarIconCount = (GameHeight - 212) / 47;
 		MiniMapUIPosX = 497 + HighResAddedWidth;
 		if (GameWidth % 32 != 0){
-		SideBarWidth = 160 + (GameWidth%32);
+			SideBarWidth = 160 + (GameWidth%32);
 		}
 	}
 	sprintf(WidthStr, "%d", GameWidth);
