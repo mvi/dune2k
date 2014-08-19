@@ -50,6 +50,7 @@ setcglob 0x004EB01C, GameBitsPerPixel
 setcglob 0x004E5FC4, SFXVolume
 setcglob 0x004E5FC8, MusicVolume
 setcglob 0x005178C4, DebugMode
+setcglob 0x005178C8, DebugModeBlocks
 setcglob 0x004eb008, FullScreen
 setcglob 0x00797e30, ForceNoCD
 setcglob 0x004EB004, MoviesEnabled ; -M = false
@@ -110,7 +111,15 @@ setcglob 0x004E8BEC, MaxPlayers
 setcglob 0x004F3D3C, TournamentGame
 setcglob 0x004F3D40, PrivateGame
 
+;Side specifics
 setcglob 0x007BCACC, AtreidesMoney
+setcglob 0x007BCACC+158096*1, HarkonnenMoney
+setcglob 0x007BCACC+158096*2, OrdosMoney
+setcglob 0x007BCACC+158096*3, EmperorMoney
+setcglob 0x007BCACC+158096*4, FremenMoney
+setcglob 0x007BCACC+158096*5, SmugglersMoney
+setcglob 0x007BCACC+158096*6, MercenariesMoney
+setcglob 0x007BCACC+158096*7, SandwormMoney
 
 setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
