@@ -79,6 +79,7 @@ setcglob 0x004E4204, SideBarPanelRightUIPosX
 setcglob 0x004E41FC, SideBarPanelLeftUIPosX
 setcglob 0x004E41EC, SideBarIconCount
 setcglob 0x004E41E4, MiniMapUIPosX
+setcglob 0x004E41E0, SideBarWidth
 
 ;DisableDebugFileFormats {
 setcglob 0x004EB014, DisableDebugFileFormats  ; bool
