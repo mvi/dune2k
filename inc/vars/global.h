@@ -85,6 +85,7 @@ extern int SideBarPanelRightUIPosX;
 extern int SideBarPanelLeftUIPosX;
 extern int SideBarIconCount;
 extern int MiniMapUIPosX;
+extern int SideBarWidth;
 
 extern int HighResAddedWidth;
 extern int HighResAddedHeight;
