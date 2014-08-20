@@ -14,6 +14,13 @@
 extern _UilCenterExceptCheck
 extern _ControlCenterExceptCheck
 
+;MenuToolTip Fix 
+@PATCH 0x00472142
+	cmp eax, _ScreenWidth 
+@ENDPATCH
+@PATCH 0x00472153
+	cmp ecx, _ScreenHeight
+@ENDPATCH
 
 ;load custom uibb files
 @SET 0x00460D23, dd _uibb_r16FileName
