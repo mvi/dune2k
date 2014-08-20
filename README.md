@@ -19,4 +19,3 @@ Credits
  - mvi
  - CCHyper
  - D2k Sardaukar ( from http://forum.dune2k.com )
- - Cuban-Pete

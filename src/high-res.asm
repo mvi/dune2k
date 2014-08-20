@@ -7,22 +7,22 @@
 
 ; ### TODO ###
 ;sidebar graphic glitches
-;fix sp menu (center anim)
-;map too small graphic glitches
+;fix sp (center anim score/mission select)
+;map too small crash
 ;airstrike OOS
+;center videos
 
 extern _UilCenterExceptCheck
 extern _ControlCenterExceptCheck
 
-;needs some more testing
-%if 0 
+
 @REPLACE 0x00472142, 0x000472147, MenuToolTipFixWidth
 	cmp byte[_HighResPatchEnabled], 1
 	jnz .out
 	cmp eax, dword[_GameWidth]
 	jmp 0x00472147
 .out:
-	CMP EAX,0x280
+	cmp eax, 0x280
 	jmp 0x00472147
 @ENDREPLACE
 
@@ -30,13 +30,13 @@ extern _ControlCenterExceptCheck
 @REPLACE 0x00472153, 0x00472159, MenuToolTipFixHeight
 	cmp byte[_HighResPatchEnabled], 1
 	jnz .out
-	cmp eax, dword[_GameHeight]
+	cmp ecx, dword[_GameHeight]
 	jmp 0x00472159
 .out:
-	CMP ECX,0x190
+	cmp ecx, 0x190
 	jmp 0x00472159
 @ENDREPLACE
-%endif
+
 
 ;load custom uibb files
 @SET 0x00460D23, dd _uibb_r16FileName
