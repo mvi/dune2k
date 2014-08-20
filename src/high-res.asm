@@ -16,10 +16,10 @@ extern _ControlCenterExceptCheck
 
 ;MenuToolTip Fix 
 @PATCH 0x00472142
-	cmp eax, _ScreenWidth 
+	cmp eax, _GameWidth 
 @ENDPATCH
 @PATCH 0x00472153
-	cmp ecx, _ScreenHeight
+	cmp ecx, _GameHeight
 @ENDPATCH
 
 ;load custom uibb files
