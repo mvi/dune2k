@@ -122,7 +122,7 @@ void LoadCustomUIIB()
 
 void UilCenterExceptCheck(char *fileName)
 {
-	HighResUilCenterExcept = !strcmp(fileName, "Globe.uid") || !strcmp(fileName, "Globe.uil");
+	HighResUilCenterExcept = !strcmp(fileName, "Globe.uid") || !strcmp(fileName, "Globe.uil") || !strcmp(fileName, "score_1.uil");
 }
 
 void ControlCenterExceptCheck(char *controlName)

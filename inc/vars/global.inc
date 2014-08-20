@@ -30,18 +30,6 @@ extern _UnknownNetVar3
 extern _UnknownNetVar4
 extern _UnknownNetVar5
 
-;Others
-extern _MousePositionX
-extern _MousePositionY
-
-extern _MySideID
-extern _Win
-extern _Lose
-extern _DifficultyLevel
-extern _GameType
-
-extern _NetworkGame
-
 ;Multiplayer settings
 extern _NetUnitCount
 extern _NetTechLevel
@@ -107,10 +95,19 @@ extern _uibb_r16FileName
 extern _uibb_r8FileName
 
 ;Others
+extern _MousePositionX
+extern _MousePositionY
+
+extern _MySideID
+extern _Win
+extern _Lose
+extern _DifficultyLevel
+extern _GameType
+
+extern _NetworkGame
 extern _MaxPlayers
 extern _TournamentGame
 extern _PrivateGame
-extern _NetPlayerHandicap
 
 extern _AtreidesMoney
 
