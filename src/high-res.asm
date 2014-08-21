@@ -3,10 +3,9 @@
 %include "vars/global.inc"
 
 
-@CLEAR 0x004A3CE5, 0x90, 0x004A3CE8 ; window mode fix, just needed for testing
+;@CLEAR 0x004A3CE5, 0x90, 0x004A3CE8 ; window mode fix, just needed for testing
 
 ; ### TODO ###
-;sidebar graphic glitches
 ;fix sp (center anim score/mission select)
 ;map too small crash
 ;airstrike OOS
@@ -14,6 +13,25 @@
 
 extern _UilCenterExceptCheck
 extern _ControlCenterExceptCheck
+extern _DrawEmptySideBarIcons
+
+
+@CALLC 0x0044916C, 0x00449172, 2, SideBarStartportDrawingGlitchFix
+	push dword[0x6D60D0]
+	push dword[0x5178B4]
+    call _DrawEmptySideBarIcons
+@FINISHCALLC
+	mov ecx, dword[0x5178B4]
+@ENDCALLC
+
+
+@CALLC 0x00449145, 0x0044914B, 2, SideBarUpgradeDrawingGlitchFix
+	push dword[0x6D60D0]
+	push dword[0x5178B4]
+    call _DrawEmptySideBarIcons
+@FINISHCALLC
+	mov edx, dword[0x5178B4]
+@ENDCALLC
 
 
 @REPLACE 0x00472142, 0x000472147, MenuToolTipFixWidth

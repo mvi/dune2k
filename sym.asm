@@ -78,9 +78,16 @@ setcglob 0x004E4214, CreditsUIPosX
 setcglob 0x004E420C, PowerBarUIPosX
 setcglob 0x004E4204, SideBarPanelRightUIPosX
 setcglob 0x004E41FC, SideBarPanelLeftUIPosX
+setcglob 0x004E4200, SideBarPanelsPosY
 setcglob 0x004E41EC, SideBarIconCount
+setcglob 0x004E41F8, SideBarIconHeight
 setcglob 0x004E41E4, MiniMapUIPosX
 setcglob 0x004E41E0, SideBarWidth
+setcglob 0x005162F4, SideBarLDownArrowVisible 
+setcglob 0x005162DC, SideBarLUpArrowVisible 
+setcglob 0x00516324, SideBarRDownArrowVisible 
+setcglob 0x005163B4, SideBarRUpArrowVisible 
+setcglob 0x005163FC, SideBarButtonMainMenuVisible
 
 ;DisableDebugFileFormats {
 setcglob 0x004EB014, DisableDebugFileFormats  ; bool
@@ -158,6 +165,10 @@ setcglob 0x0042e660, Load_Targa					;       Load_Targa(char *FilePath, int,int,i
 setcglob 0x0042e810, Load_Targa2				;       Load_Targa(char *FilePath,int,int)
 
 setcglob 0x00491330, LoadBackgroundGFX
+setcglob 0x004305F0, DrawImageUnk
+setcglob 0x00427690, DrawStartportSideBarMenu
+setcglob 0x004278A0, DrawUpgradeSideBarMenu 
+setcglob 0x00426E80, DrawNormalSideBarMenu
 
 ; Game Start
 setcglob 0x00460C80, LoadUIIB_r

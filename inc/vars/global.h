@@ -83,7 +83,9 @@ extern int CreditsUIPosX;
 extern int PowerBarUIPosX;
 extern int SideBarPanelRightUIPosX;
 extern int SideBarPanelLeftUIPosX;
+extern int SideBarPanelsPosY;
 extern int SideBarIconCount;
+extern int SideBarIconHeight;
 extern int MiniMapUIPosX;
 extern int SideBarWidth;
 
@@ -124,6 +126,7 @@ void LoadDune2000Cfg();
 void SaveDune2000Cfg();
 void cinit();
 void LoadBackgroundGFX(char *fileName, int unk);
+void DrawImageUnk(int *unk1, int x, int y, int *image, int unk2, int unk3, int unk4);
 
 //helpers
 bool FileExists(char *fileName);

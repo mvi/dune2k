@@ -131,3 +131,14 @@ void ControlCenterExceptCheck(char *controlName)
 	HighResControlCenterExcept = !strcmp(controlName, "BUTTON serialModem") || StartsWith(controlName, "LISTBOX");
 	if (!strcmp(controlName, "BUTTON serialModem")) HighResControlFirstTimeCenter = false;
 }
+
+void DrawEmptySideBarIcons(int *unk, int *image)
+{
+	int y = SideBarPanelsPosY + (SideBarIconHeight * 4);
+	for (int i = SideBarIconCount - 4; i-- > 0;)
+	{
+		DrawImageUnk(unk, SideBarPanelRightUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
+		DrawImageUnk(unk, SideBarPanelLeftUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
+	}
+}
+
