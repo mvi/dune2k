@@ -19,7 +19,7 @@ extern _DrawEmptySideBarIcons
 @CALLC 0x0044916C, 0x00449172, 2, SideBarStartportDrawingGlitchFix
 	push dword[0x6D60D0]
 	push dword[0x5178B4]
-    call _DrawEmptySideBarIcons
+	call _DrawEmptySideBarIcons
 @FINISHCALLC
 	mov ecx, dword[0x5178B4]
 @ENDCALLC
@@ -28,7 +28,7 @@ extern _DrawEmptySideBarIcons
 @CALLC 0x00449145, 0x0044914B, 2, SideBarUpgradeDrawingGlitchFix
 	push dword[0x6D60D0]
 	push dword[0x5178B4]
-    call _DrawEmptySideBarIcons
+	call _DrawEmptySideBarIcons
 @FINISHCALLC
 	mov edx, dword[0x5178B4]
 @ENDCALLC

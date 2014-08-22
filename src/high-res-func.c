@@ -122,7 +122,7 @@ void LoadCustomUIIB()
 
 void UilCenterExceptCheck(char *fileName)
 {
-	HighResUilCenterExcept = !strcmp(fileName, "Globe.uid") || !strcmp(fileName, "Globe.uil") || !strcmp(fileName, "score_1.uil");
+	HighResUilCenterExcept = !strcmp(fileName, "Globe.uid") || !strcmp(fileName, "Globe.uil") || !strcmp(fileName, "score_1.uil") || !strcmp(fileName, "score_1.uid");
 }
 
 void ControlCenterExceptCheck(char *controlName)
@@ -141,4 +141,3 @@ void DrawEmptySideBarIcons(int *unk, int *image)
 		DrawImageUnk(unk, SideBarPanelLeftUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
 	}
 }
-

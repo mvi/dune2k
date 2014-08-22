@@ -1,8 +1,10 @@
 %include "macros/patch.inc"
 %include "macros/hack.inc"
+%include "vars/keymap.inc"
 
 ; this tells nasm that the C symbol (function) "HandleKeyEvent" is external of this file - linkers problem not ours to resolve it
 extern _HandleKeyEvent
+extern _SlowSideBarScrolling
 
 ; two cdecl calls with two real arguments and should leave the original registers intact because we Save/Restore them via @CALLC
 
@@ -34,3 +36,27 @@ extern _HandleKeyEvent
 @SET 0x00443E3D, dd 0x00797edb
 ;map scroll left default hotkey
 @SET 0x00443E70, dd 0x00797ed9
+
+
+@REPLACE 0x0044401E, 0x00444023, ScrollSideBarOneByOneUp
+	cmp byte[_SlowSideBarScrolling], 1
+	jnz .out
+	mov byte[KeyIsDown2(VK_UP)], 0
+.out:
+	test eax, eax
+	jle 0x00444028
+	dec eax
+	jmp 0x00444023
+@ENDREPLACE
+
+
+@REPLACE 0x00443FDF, 0x00443FE5, ScrollSideBarOneByOneDown
+	cmp byte[_SlowSideBarScrolling], 1
+	jnz .out
+	mov  byte[KeyIsDown2(VK_DOWN)], 0
+.out:
+	mov eax, dword[ebp+0x260B4]
+	jmp 0x00443FE5
+@ENDREPLACE
+
+

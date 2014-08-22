@@ -46,6 +46,7 @@ int ScrollDown = VK_NUMPAD2;
 int ScrollRight = VK_NUMPAD3;
 int ScrollUp = VK_NUMPAD5;
 
+bool SlowSideBarScrolling = false;
 
 void HandleKeyEvent(int key, bool keyIsDown)
 {

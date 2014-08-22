@@ -38,6 +38,7 @@ void SaveDune2000Ini()
 	D2kIniSetBool("Options", "ForceNoCD", ForceNoCD);
 	D2kIniSetInt("Options", "GameWidth", GameWidth);
 	D2kIniSetInt("Options", "GameHeight", GameHeight);
+	D2kIniSetBool("Options", "SlowSideBarScrolling", SlowSideBarScrolling);
 
 	D2kIniSetBool("WOL", "AllowFindUser", AllowFindUser);
 	D2kIniSetBool("WOL", "AllowPageUser", AllowPageUser);
@@ -121,6 +122,7 @@ void LoadDune2000Ini()
 	SkipIntro = D2kIniGetBool("Options", "SkipIntro", false);
 	VideoBackBuffer = D2kIniGetBool("Options", "VideoBackBuffer", true);
 	DebugMode = D2kIniGetBool("Options", "DebugMode", false);
+	SlowSideBarScrolling = D2kIniGetBool("Options", "SlowSideBarScrolling", false);
 
 	AllowFindUser = D2kIniGetBool("WOL", "AllowFindUser", true);
 	AllowPageUser = D2kIniGetBool("WOL", "AllowPageUser", true);

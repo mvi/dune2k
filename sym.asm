@@ -76,6 +76,7 @@ setcglob 0x004EB028, GameWidth
 setcglob 0x004EB02C, GameHeight
 setcglob 0x004E4214, CreditsUIPosX
 setcglob 0x004E420C, PowerBarUIPosX
+setcglob 0x004E4210, PowerBarUIPosY
 setcglob 0x004E4204, SideBarPanelRightUIPosX
 setcglob 0x004E41FC, SideBarPanelLeftUIPosX
 setcglob 0x004E4200, SideBarPanelsPosY
