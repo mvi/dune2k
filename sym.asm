@@ -119,6 +119,8 @@ setcglob 0x004E8BEC, MaxPlayers
 setcglob 0x004F3D3C, TournamentGame
 setcglob 0x004F3D40, PrivateGame
 
+setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
+
 ;Side specifics
 setcglob 0x007BCACC, AtreidesMoney
 setcglob 0x007BCACC+158096*1, HarkonnenMoney
@@ -128,8 +130,6 @@ setcglob 0x007BCACC+158096*4, FremenMoney
 setcglob 0x007BCACC+158096*5, SmugglersMoney
 setcglob 0x007BCACC+158096*6, MercenariesMoney
 setcglob 0x007BCACC+158096*7, SandwormMoney
-
-setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
 ;; ### Functions ###
 
@@ -177,6 +177,11 @@ setcglob 0x00460EC0, LoadUI_LANG_r
 setcglob 0x00466140, LoadCircles_bin
 setcglob 0x00454E00, LoadTechpos_bin
 
+; Others
+setcglob 0x0048DC10, TextUibGetStringID			; (char *key, int unk)
+setcglob 0x0048DCC0, TextUibGetValue			; (int id, int unk)
+
+
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
 setcglob 0x008CF584, _imp__GetProcAddress
@@ -184,7 +189,7 @@ setcglob 0x008CF598, _imp__GetStdHandle
 setcglob 0x008CF4E4, _imp__WriteFile
 setcglob 0x008CF4F8, _imp__OutputDebugStringA
 setcglob 0x008CF498, _imp__CreatePolygonRgn
-
+setcglob 0x008CF510, _imp__GetTickCount
 
 
 ; stdio

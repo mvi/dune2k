@@ -28,10 +28,12 @@ OBJS        = callsites.o \
 		src/mouse-wheel-and-buttons.o \
 		src/mouse-wheel-and-buttons-func.o \
 		src/dune2000.ini.o \
+		src/show-in-game-mes-longer.o \
 		res/dune2000.o \
 		utils/stdio.o \
 		utils/helpers.o \
 		utils/ini-file.o \
+		version.o \
 		\
 		sym.o
 

@@ -10,6 +10,7 @@
 ;map too small crash
 ;airstrike OOS
 ;center videos
+;fix multiplayer chat
 
 extern _UilCenterExceptCheck
 extern _ControlCenterExceptCheck

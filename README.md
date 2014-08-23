@@ -19,3 +19,5 @@ Credits
  - mvi
  - CCHyper
  - D2k Sardaukar ( from http://forum.dune2k.com )
+ - tomsons26 ( thanks for the new icon! )
+ 
