@@ -34,9 +34,9 @@ enum GameEndStates {
 };
 
 enum GameTypes {
-	LAN = 2;
-	NullModem = 3;
-	WOL = 5;
+	LAN = 2,
+	NullModem = 3,
+	WOL = 5
 };
 
 // ### Global Variables ###

@@ -220,7 +220,7 @@ setcglob 0x004b1b20, memcpy
 
 ;; ### From Hyper, uncategorized ###
 
-setcglob {SECT_TEXT  + 00000740}, fptc
+;setcglob {SECT_TEXT  + 00000740}, fptc
 ;setcglob {SECT_TEXT  + 00000740}, ;       fptc
 ;setcglob {SECT_TEXT  + 00000A20}, ;       __assert
 ;setcglob {SECT_TEXT  + 00000AB0}, ;       Audio_Init(int)
