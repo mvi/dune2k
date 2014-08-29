@@ -22,6 +22,23 @@ enum Colors {
 	LightBrown
 };
 
+enum GameEndStates {
+	EndedNormally = 0,
+	ISurrendered,
+	OpponentSurrendered,
+	OutOfSync,
+	ConnectionLost,
+	WashGame,
+	DrawGame,
+	UnknownEndState
+};
+
+enum GameTypes {
+	LAN = 2;
+	NullModem = 3;
+	WOL = 5;
+};
+
 // ### Global Variables ###
 
 //Network settings
@@ -74,6 +91,10 @@ extern bool LanguageFilter;
 extern bool ShowAllGames;
 extern bool Microphone;
 
+extern unsigned char WOLMaxPlayers;
+extern bool WOLTournamentGame;
+extern bool WOLPrivateGame;
+
 //Screen display stuff
 extern int ScreenWidth;
 extern int ScreenHeight;
@@ -97,9 +118,6 @@ extern bool HighResPatchEnabled;
 extern bool HighResCenterUI;
 
 //Others
-extern unsigned char MaxPlayers;
-extern bool TournamentGame;
-extern bool PrivateGame;
 extern unsigned char NetPlayerHandicap;
 
 extern unsigned int AtreidesMoney;
@@ -127,6 +145,7 @@ void SaveDune2000Cfg();
 void cinit();
 void LoadBackgroundGFX(char *fileName, int unk);
 void DrawImageUnk(int *unk1, int x, int y, int *image, int unk2, int unk3, int unk4);
+void OpenWebsite(char *URL);
 
 //helpers
 bool FileExists(char *fileName);

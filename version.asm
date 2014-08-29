@@ -1,14 +1,12 @@
 %include "macros/patch.inc"
 %include "macros/hack.inc"
+%include "macros/string.inc"
 
-GameVersion db "1.06.1", 0
+StringZ GameVersion, "V 1.06p rev.1 - FunkyFr3sh"
 
 @HACK 0x0048BE05, ChangeGameVersion
-	sub ecx, 5
-	cmp ecx, 0x255
-	jnz .out
+	sub ecx, 120
 	mov ebx, GameVersion
-.out:
 	push ecx
 	push ebx
 	jmp 0x0048BE0A

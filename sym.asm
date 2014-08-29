@@ -27,6 +27,8 @@ setcglob 0x4E3B1C, UnknownNetVar3
 setcglob 0x4E3AF0, UnknownNetVar4
 setcglob 0x4E3AF4, UnknownNetVar5
 
+setcglob 0x007984C4, NetworkGame ;bool
+
 ;Multiplayer settings
 setcglob 0x004E3B00, NetUnitCount
 setcglob 0x004E3B04, NetTechLevel
@@ -68,6 +70,10 @@ setcglob 0x004F3D00, LanguageFilter
 setcglob 0x004F3D04, ShowAllGames
 setcglob 0x004F3CF0, Microphone
 
+setcglob 0x004E8BEC, WOLMaxPlayers
+setcglob 0x004F3D3C, WOLTournamentGame
+setcglob 0x004F3D40, WOLPrivateGame
+
 
 ;Screen display stuff
 setcglob 0x004eb020, ScreenWidth
@@ -89,6 +95,11 @@ setcglob 0x005162DC, SideBarLUpArrowVisible
 setcglob 0x00516324, SideBarRDownArrowVisible 
 setcglob 0x005163B4, SideBarRUpArrowVisible 
 setcglob 0x005163FC, SideBarButtonMainMenuVisible
+setcglob 0x00786D48, BattleFieldWidth
+setcglob 0x006DC538, BattleFieldHeight
+setcglob 0x004E41DC, OptionsBarHeight
+setcglob 0x00798538, BattleFieldPosX
+setcglob 0x0079853C, BattleFieldPosY
 
 ;DisableDebugFileFormats {
 setcglob 0x004EB014, DisableDebugFileFormats  ; bool
@@ -112,14 +123,8 @@ setcglob 0x006B8274, Win
 setcglob 0x006B8278, Lose
 setcglob 0x004E8BF0, DifficultyLevel
 setcglob 0x00797E34, GameType
+setcglob 0x004DB9E0, GameEndState
 
-setcglob 0x007984C4, NetworkGame
-
-setcglob 0x004E8BEC, MaxPlayers
-setcglob 0x004F3D3C, TournamentGame
-setcglob 0x004F3D40, PrivateGame
-
-setcglob 0x004E8BEC, WOLGameRoomPlayerLimit
 
 ;Side specifics
 setcglob 0x007BCACC, AtreidesMoney
@@ -134,22 +139,6 @@ setcglob 0x007BCACC+158096*7, SandwormMoney
 ;; ### Functions ###
 
 setcglob 0x005A3BB0, WinMain
-
-setcglob 0x0042DC00, TextOnScreen
-
-setcglob 0x00459450, GenerateUnitMoveOrder
-setcglob 0x004596F0, GenerateUnitAttackUnitOrder
-setcglob 0x00455FC0, ModelBuildBuildingPick
-setcglob 0x00455510, HandleGameLoopEvents
-
-setcglob 0x00478C20, LoadDune2000Cfg
-setcglob 0x00478FA0, SaveDune2000Cfg
-
-setcglob 0x00482690, Get_CD						 ;       Get_CD::Get_CD(void)
-setcglob 0x004A39E0, Parse_Command_Line
-
-setcglob 0x004B1890, cinit
-
 
 ; drawing
 setcglob 0x004308f0, Draw_Line_Clip_TImage		;       Draw_Line_Clip_TImage(int,int,int,int,int,int,int)
@@ -180,7 +169,17 @@ setcglob 0x00454E00, LoadTechpos_bin
 ; Others
 setcglob 0x0048DC10, TextUibGetStringID			; (char *key, int unk)
 setcglob 0x0048DCC0, TextUibGetValue			; (int id, int unk)
-
+setcglob 0x004184A0, OpenWebsite				; (char *URL)
+setcglob 0x0042DC00, TextOnScreen
+setcglob 0x00459450, GenerateUnitMoveOrder
+setcglob 0x004596F0, GenerateUnitAttackUnitOrder
+setcglob 0x00455FC0, ModelBuildBuildingPick
+setcglob 0x00455510, HandleGameLoopEvents
+setcglob 0x00478C20, LoadDune2000Cfg
+setcglob 0x00478FA0, SaveDune2000Cfg
+setcglob 0x00482690, Get_CD						 ;       Get_CD::Get_CD(void)
+setcglob 0x004A39E0, Parse_Command_Line
+setcglob 0x004B1890, cinit
 
 ; winapi
 setcglob 0x008CF5EC, _imp__LoadLibraryA
@@ -221,7 +220,7 @@ setcglob 0x004b1b20, memcpy
 
 ;; ### From Hyper, uncategorized ###
 
-
+setcglob {SECT_TEXT  + 00000740}, fptc
 ;setcglob {SECT_TEXT  + 00000740}, ;       fptc
 ;setcglob {SECT_TEXT  + 00000A20}, ;       __assert
 ;setcglob {SECT_TEXT  + 00000AB0}, ;       Audio_Init(int)
@@ -799,8 +798,6 @@ setcglob 0x004b1b20, memcpy
 ;setcglob {SECT_DATA  + 00000198}, ;       Caption
 ;setcglob {SECT_DATA  + 000002C0}, ;       hFile
 ;setcglob {SECT_DATA  + 0000031C}, ;       Text
-;setcglob {SECT_DATA  + 000029D4}, ;       bool AllowFindUser
-;setcglob {SECT_DATA  + 000029D8}, ;       bool AllowPageUser
 ;setcglob {SECT_DATA  + 000030D4}, ;       Delim
 ;setcglob {SECT_DATA  + 00004004}, ;       Str1
 ;setcglob {SECT_DATA  + 0000412C}, ;       ValueName

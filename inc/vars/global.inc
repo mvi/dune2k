@@ -30,6 +30,8 @@ extern _UnknownNetVar3
 extern _UnknownNetVar4
 extern _UnknownNetVar5
 
+extern _NetworkGame
+
 ;Multiplayer settings
 extern _NetUnitCount
 extern _NetTechLevel
@@ -69,6 +71,10 @@ extern _LanguageFilter
 extern _ShowAllGames
 extern _Microphone
 
+extern _WOLMaxPlayers
+extern _WOLTournamentGame
+extern _WOLPrivateGame
+
 ;Screen display stuff
 extern _ScreenWidth
 extern _ScreenHeight
@@ -103,11 +109,6 @@ extern _Win
 extern _Lose
 extern _DifficultyLevel
 extern _GameType
-
-extern _NetworkGame
-extern _MaxPlayers
-extern _TournamentGame
-extern _PrivateGame
 
 extern _AtreidesMoney
 

@@ -21,10 +21,10 @@ OBJS        = callsites.o \
 		src/high-res-func.o \
 		src/command-line-parameters.o \
 		src/hotkeys.o \
+		src/hotkeys-func.o \
 		src/no-cd.o \
 		src/multiplayer-network-settings.o \
 		src/wol-fixes.o \
-		src/hotkeys-func.o \
 		src/mouse-wheel-and-buttons.o \
 		src/mouse-wheel-and-buttons-func.o \
 		src/dune2000.ini.o \
