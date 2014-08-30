@@ -200,12 +200,15 @@ setcglob 0x004B2B60, strlen
 setcglob 0x004b1700, tolower
 setcglob 0x004b2ad0, strcmp
 setcglob 0x004b0e30, malloc
+setcglob 0x004ba640, calloc
 setcglob 0x004b29e0, strcpy
 setcglob 0x004b0ee0, free
 setcglob 0x004b07a0, atoi
 setcglob 0x004b08b0, strtok
 setcglob 0x004b0fd0, fopen
 setcglob 0x004b0ff0, fclose
+setcglob 0x004b1070, fread
+setcglob 0x004b11b0, fwrite
 setcglob 0x004b29f0, strcat
 setcglob 0x004b13a0, strncmp
 setcglob 0x004b1b20, memcpy
