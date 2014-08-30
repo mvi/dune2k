@@ -6,37 +6,40 @@
 // ### Constants ###
 
 enum Sides {
-	Atreides = 0,
-	Harkonnen,
-	Ordos
+	SD_ATREIDES = 0,
+	SD_HARKONNEN,
+	SD_ORDOS
 };
 
 enum Colors {
-	Blue = 0,
-	Red,
-	Teal,
-	Purple,
-	Gray,
-	Brown,
-	Gold,
-	LightBrown
+	CL_BLUE = 0,
+	CL_RED,
+	CL_TEAL,
+	CL_PURPLE,
+	CL_GRAY,
+	CL_BROWN,
+	CL_GOLD,
+	CL_LIGHTBROWN
 };
 
 enum GameEndStates {
-	EndedNormally = 0,
-	ISurrendered,
-	OpponentSurrendered,
-	OutOfSync,
-	ConnectionLost,
-	WashGame,
-	DrawGame,
-	UnknownEndState
+	GES_ENDEDNORMALLY = 0,
+	GES_ISURRENDERED,
+	GES_OPPONENTSURRENDERED,
+	GES_OUTOFSYNC,
+	GES_CONNECTIONLOST,
+	GES_WASHGAME,
+	GES_DRAWGAME,
+	GES_UNKNOWNENDSTATE
 };
 
 enum GameTypes {
-	LAN = 2,
-	NullModem = 3,
-	WOL = 5
+	GT_SINGLEPLAYER = 0,
+	GT_SKIRMISH,
+	GT_LAN,
+	GT_NULLMODEM,
+	GT_UNKNOWN,
+	GT_WOL
 };
 
 // ### Global Variables ###
