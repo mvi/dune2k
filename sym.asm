@@ -95,6 +95,8 @@ setcglob 0x005162DC, SideBarLUpArrowVisible
 setcglob 0x00516324, SideBarRDownArrowVisible 
 setcglob 0x005163B4, SideBarRUpArrowVisible 
 setcglob 0x005163FC, SideBarButtonMainMenuVisible
+setcglob 0x00516414, SideBarButtonMainMenu2Visible
+setcglob 0x0051642C, SideBarButtonPurchaseVisible
 setcglob 0x00786D48, BattleFieldWidth
 setcglob 0x006DC538, BattleFieldHeight
 setcglob 0x004E41DC, OptionsBarHeight
@@ -153,9 +155,8 @@ setcglob 0x00430860, Clear_TImage				;       Clear_TImage(int,int,int)
 setcglob 0x0042e8b0, Get_Palette_From_Bitmap	;       Get_Palette_From_Bitmap(lpFilename,int)
 setcglob 0x0042e660, Load_Targa					;       Load_Targa(char *FilePath, int,int,int,int width, int heigh)
 setcglob 0x0042e810, Load_Targa2				;       Load_Targa(char *FilePath,int,int)
-
-setcglob 0x00491330, LoadBackgroundGFX
-setcglob 0x004305F0, DrawImageUnk
+setcglob 0x004305F0, BlitClipTImage
+setcglob 0x00491330, Load_Image
 setcglob 0x00427690, DrawStartportSideBarMenu
 setcglob 0x004278A0, DrawUpgradeSideBarMenu 
 setcglob 0x00426E80, DrawNormalSideBarMenu

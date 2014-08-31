@@ -16,8 +16,6 @@ int HighResAddedWidth;
 int HighResAddedHeight;
 int HighResUIAlignX;
 int HighResUIAlignY;
-char WidthStr[10];
-char HeightStr[10];
 char uibb_r16FileName[100];
 char uibb_r8FileName[100];
 
@@ -47,16 +45,14 @@ void LoadVideoSettings()
 			SideBarWidth = 160 + (GameWidth%32);
 		}
 	}
-	sprintf(WidthStr, "%d", GameWidth);
-	sprintf(HeightStr, "%d", GameHeight);
 	cinit();
 }
 
 void MakeCustomUIBB(char *UIBBR16Name)
 {
 	FILE *UIBBR16 = fopen(".\\data\\UIBB.R16", "rb"); 
-    if (UIBBR16)
-    {
+	if (UIBBR16)
+	{
 		int p; 
 		int k;
 		int FileSizeUIBBR16 = 640*400; //original UIBB.R16
@@ -94,7 +90,7 @@ void MakeCustomUIBB(char *UIBBR16Name)
 		//####################### TOP BAR ####################### 
 		//Top bar copy
 		unsigned short * TopBar;
-		TopBar = (unsigned short*) calloc (20*305*10, sizeof(unsigned short));
+		TopBar = (unsigned short*) calloc (20*305, sizeof(unsigned short));
 		p = 0;
 		k = 71; //jump over options button
 		for (int i = 0; i < 20; ++i)
@@ -114,6 +110,7 @@ void MakeCustomUIBB(char *UIBBR16Name)
 			int tj = 0;
 			for (int j = 0; j < GameWidth-640+71; ++j) //+71 to remove 'old' options button
 			{
+				if (j!=0 && j%305==0) ++tj;
 				HighResUIBB[p+j] = TopBar[k+j-tj*305];
 			}
 			p = p + GameWidth;
@@ -191,9 +188,13 @@ void MakeCustomUIBB(char *UIBBR16Name)
 		FILE *UIBBR16 = fopen(UIBBR16Name, "wb"); //(over)write it
 		if (UIBBR16)
 		{
-		fwrite(HighResUIBB, sizeof(unsigned short), GameWidth*GameHeight, UIBBR16);
-		fclose(UIBBR16);
+			fwrite(HighResUIBB, sizeof(unsigned short), GameWidth*GameHeight, UIBBR16);
+			fclose(UIBBR16);
 		}
+		free(OriginalUIBB);
+		free(HighResUIBB);
+		free(BuildBlock);
+		free(TopBar);
 	}
 }
 
@@ -205,68 +206,36 @@ void LoadHighResBackground(char *fileName, int unk)
 		HighResInitialized = true;
 	}
 	
-	char fPath[255];
-	strcpy(fPath, ".\\Data\\");
-	strcat(fPath, fileName);
-	strcat(fPath, ".");
-	strcat(fPath, WidthStr);
-	strcat(fPath, "x");
-	strcat(fPath, HeightStr);
-	strcat(fPath, ".tga");
+	char customFilePath[255];
+	sprintf(customFilePath, ".\\Data\\%s.%dx%d.tga", fileName, GameWidth, GameHeight);
 	
-	if (FileExists(fPath))
+	if (FileExists(customFilePath))
 	{
 		HighResCenterUI = true;
-		char file[255];
-		strcpy(file, fileName);
-		strcat(file, ".");
-		strcat(file, WidthStr);
-		strcat(file, "x");
-		strcat(file, HeightStr);
-		LoadBackgroundGFX(file, unk);
+		char customFile[255];
+		sprintf(customFile, "%s.%dx%d", fileName, GameWidth, GameHeight);
+		Load_Image(customFile, unk);
 	}
-	else LoadBackgroundGFX(fileName, unk);
+	else Load_Image(fileName, unk);
 }
 
 void LoadCustomUIIB()
 {
-	char UIIB16Path[255];
-	strcpy(UIIB16Path, ".\\Data\\UIBB.");
-	strcat(UIIB16Path, WidthStr);
-	strcat(UIIB16Path, "x");
-	strcat(UIIB16Path, HeightStr);
-	strcat(UIIB16Path, ".R16");
+	char customUIIB16Path[255];
+	sprintf(customUIIB16Path, ".\\Data\\UIBB.%dx%d.R16", GameWidth, GameHeight);
 	
-	if (!FileExists(UIIB16Path) && HighResPatchEnabled)
+	if (!FileExists(customUIIB16Path) && HighResPatchEnabled)
 	{
-		MakeCustomUIBB(UIIB16Path);
+		MakeCustomUIBB(customUIIB16Path);
 	}
 	
-	if (FileExists(UIIB16Path))
-	{
-		strcpy(uibb_r16FileName, "UIBB.");
-		strcat(uibb_r16FileName, WidthStr);
-		strcat(uibb_r16FileName, "x");
-		strcat(uibb_r16FileName, HeightStr);
-		strcat(uibb_r16FileName, ".R16");
-	}
+	if (FileExists(customUIIB16Path)) sprintf(uibb_r16FileName, "UIBB.%dx%d.R16", GameWidth, GameHeight);
 	else strcpy(uibb_r16FileName, "UIBB.R16");
 
-	char UIIB8Path[255];
-	strcpy(UIIB8Path, ".\\Data\\UIBB.");
-	strcat(UIIB8Path, WidthStr);
-	strcat(UIIB8Path, "x");
-	strcat(UIIB8Path, HeightStr);
-	strcat(UIIB8Path, ".R8");
+	char customUIIB8Path[255];
+	sprintf(customUIIB8Path, ".\\Data\\UIBB.%dx%d.R8", GameWidth, GameHeight);
 	
-	if (FileExists(UIIB8Path))
-	{
-		strcpy(uibb_r8FileName, "UIBB.");
-		strcat(uibb_r8FileName, WidthStr);
-		strcat(uibb_r8FileName, "x");
-		strcat(uibb_r8FileName, HeightStr);
-		strcat(uibb_r8FileName, ".R8");
-	}
+	if (FileExists(customUIIB8Path)) sprintf(uibb_r8FileName, "UIBB.%dx%d.R8", GameWidth, GameHeight);
 	else strcpy(uibb_r8FileName, "UIBB.R8");
 }
 
@@ -287,7 +256,7 @@ void DrawEmptySideBarIcons(int *unk, int *image)
 	int y = SideBarPanelsPosY + (SideBarIconHeight * 4);
 	for (int i = SideBarIconCount - 4; i-- > 0;)
 	{
-		DrawImageUnk(unk, SideBarPanelRightUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
-		DrawImageUnk(unk, SideBarPanelLeftUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
+		BlitClipTImage(unk, SideBarPanelRightUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
+		BlitClipTImage(unk, SideBarPanelLeftUIPosX, y + (i * SideBarIconHeight), image, 0, 0, 0);
 	}
 }

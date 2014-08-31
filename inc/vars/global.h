@@ -146,8 +146,8 @@ int GenerateUnitAttackUnitOrder(int,int,int);
 void LoadDune2000Cfg();
 void SaveDune2000Cfg();
 void cinit();
-void LoadBackgroundGFX(char *fileName, int unk);
-void DrawImageUnk(int *unk1, int x, int y, int *image, int unk2, int unk3, int unk4);
+void Load_Image(char *fileName, int unk);
+void BlitClipTImage(int *unk1, int x, int y, int *image, int unk2, int unk3, int unk4);
 void OpenWebsite(char *URL);
 
 //helpers
