@@ -5,6 +5,7 @@
 
 CALL(0x00470BA0, _SaveDune2000Ini);
 CALL(0x00470A68, _LoadDune2000Ini);
+CLEAR(0x00470917, 0x90, 0x00470931); //do not sleep 10seconds if dune2000.cfg does not exist
 
 LPCTSTR dune2000Ini = ".\\dune2000.ini";
 
