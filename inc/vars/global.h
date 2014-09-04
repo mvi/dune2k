@@ -105,6 +105,7 @@ extern int GameWidth;
 extern int GameHeight;
 extern int CreditsUIPosX;
 extern int PowerBarUIPosX;
+extern int PowerBarUIPosY;
 extern int SideBarPanelRightUIPosX;
 extern int SideBarPanelLeftUIPosX;
 extern int SideBarPanelsPosY;

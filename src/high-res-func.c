@@ -37,6 +37,7 @@ void LoadVideoSettings()
 		HighResUIAlignY = HighResAddedHeight > 0 ? (HighResAddedHeight / 2) : 0;
 		CreditsUIPosX = 390 + HighResAddedWidth;
 		PowerBarUIPosX = 485 + HighResAddedWidth;
+		PowerBarUIPosY = 172 + HighResAddedHeight;
 		SideBarPanelRightUIPosX = 563 + HighResAddedWidth;
 		SideBarPanelLeftUIPosX = 501 + HighResAddedWidth;
 		SideBarIconCount = (GameHeight - 212) / 47;

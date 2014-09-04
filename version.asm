@@ -2,7 +2,7 @@
 %include "macros/hack.inc"
 %include "macros/string.inc"
 
-StringZ GameVersion, "V 1.06p rev.3 - FunkyFr3sh"
+StringZ GameVersion, "V 1.06p rev.4 - FunkyFr3sh"
 
 @HACK 0x0048BE05, ChangeGameVersion
 	sub ecx, 120

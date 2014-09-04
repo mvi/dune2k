@@ -17,6 +17,20 @@ extern _ControlCenterExceptCheck
 extern _DrawEmptySideBarIcons
 
 
+@HACK 0x0042565A, AlignMissionTimer
+	cmp byte[_HighResPatchEnabled], 1
+	jnz .out
+	mov eax, dword[_HighResAddedWidth]
+	add eax, 0x1A4
+	push eax
+	xor eax, eax
+	jmp 0x0042565F
+.out:
+	push 0x1A4
+	jmp 0x0042565F
+@ENDHACK
+
+
 @CALLC 0x0044916C, 0x00449172, 2, SideBarStartportDrawingGlitchFix
 	push dword[0x6D60D0]
 	push dword[0x5178B4]
